@@ -1,0 +1,63 @@
+.animated-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+    padding: 5px 0px;
+    overflow: hidden;
+    border-radius: 0.1rem;
+  }
+  
+  .animated-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  
+  .animated-button:hover::after {
+    width: 100%;
+    left: 0;
+  }
+  
+
+@media (max-width: 992px) {
+  .animated-button {
+      font-size: 11px;
+      padding: 4px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .animated-button {
+      font-size: 10px;
+      padding: 3px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .animated-button {
+      font-size: 9px;
+      padding: 3px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .animated-button {
+      font-size: 8px;
+      padding: 2px 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .animated-button {
+      font-size: 7px;
+      padding: 2px 0;
+  }
+}

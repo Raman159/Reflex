@@ -1,0 +1,130 @@
+.unique-client-container {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.unique-client-cards {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap */
+    max-width: 90%;
+    position: relative;
+    padding: 0.5rem;
+    justify-content: space-between;
+}
+
+.unique-client-card {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 1.5rem;
+    transition: transform 0.9s ease-in-out, box-shadow 0.9s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+ 
+    margin: 0.5rem;
+    transform: rotate(0); /* Reset rotation */
+}
+
+.unique-card1{
+    background-image: url('./src/assets/image/box.png');
+}
+.unique-card2{
+    background-image: url('./src/assets/image/eco.png');
+}
+.unique-card3{
+    background-image: url('./src/assets/image/hard.png');
+}
+.unique-card4{
+    background-image: url('./src/assets/image/playsmart.png');
+}
+
+.unique-client-card:hover {
+    transform: scale(1.05) rotate(3deg); /* Subtle rotation effect on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.unique-client-cards::before {
+    content: '';
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 120%;
+    background: rgba(0, 150, 255, 0.3);
+    border-radius: 50%;
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+/* Responsive Layout Changes */
+@media (max-width: 1080px) {
+    .unique-client-card {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+@media (max-width: 980px) {
+    .unique-client-card {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+
+@media (max-width: 840px) {
+    .unique-client-card {
+        width: 7rem;
+        height: 7rem;
+    }
+    .unique-client-cards {
+        justify-content: space-between;
+    }
+}
+
+/* For smaller devices, limit cards to 2 per row */
+@media (max-width: 600px) {
+    .unique-client-cards {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .unique-client-card {
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+/* Limit cards to 2 per row */
+@media (max-width: 480px) {
+    .unique-client-cards {
+        justify-content: space-evenly;
+    }
+    .unique-client-card {
+        width: calc(50% - 1rem); /* Allow 2 cards per row */
+        height: auto;
+    }
+}
+
+/* Text section styling */
+.unique-client-text {
+    width: 100%; /* Full width for text */
+    padding-left: 0;
+    color: white;
+    margin-top: 2rem;
+}
+
+.unique-client-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.unique-client-text p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}

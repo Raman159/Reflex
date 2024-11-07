@@ -1,0 +1,70 @@
+.cover-image {
+    width: 100%;
+    height: auto;
+    background-image: url(./src/assets/image/about-img.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 10% 25%;
+    color:white;
+}
+.cover-text{
+    font-size: 1.5rem;
+}
+.cover-subtext{
+    padding:0% 15%;
+    font-size: 0.8rem;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: #0d0d0d;
+    padding: 2rem;
+}
+
+.about-cards {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-card {
+    background: #181818;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.about-card h3 {
+    color: #00b4d8;
+    margin-bottom: 1rem;
+}
+
+.about-card p {
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.about-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.stat-card {
+    text-align: center;
+}
+
+.stat-card p {
+    font-size: 0.8rem;
+    color: #cccccc;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}

@@ -1,0 +1,76 @@
+
+.start-project {
+    position: relative;
+    white-space: nowrap; 
+    padding: 10px 20px;
+    font-size: 16px; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    text-shadow: none;
+    border-radius: 100px; 
+    background-color: transparent;
+    transition: background-color 0.5s, transform 0.5s; 
+   
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px;
+    letter-spacing: 1px;
+}
+
+.start-project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #0000FF 0%, #800080 100%);
+    transition: all 0.5s ease;
+}
+
+.start-project::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #800080 0%, #0000FF 100%);
+    transition: all 0.5s ease;
+}
+
+.start-project:hover::before {
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.start-project:hover::after {
+    width: 100%;
+    bottom: 0;
+    right: 0;
+}
+
+@media (max-width: 768px) {
+    .start-project{
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .start-project {
+        padding: 8px 12px; 
+        font-size: 12px; 
+    }
+}
+
+

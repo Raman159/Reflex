@@ -1,0 +1,222 @@
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .team-text{
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .team-subtext{
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    /* margin-top: 4rem; */
+  }
+
+  .team-card {
+    position: relative;
+    background-color: #0e0c0b;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+  }
+  
+  .image-style {
+    padding-top: 2px;
+    padding-left: 2px;
+  }
+  
+  .image-style img {
+    position: relative;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 10%;
+    border: 5px solid black;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    z-index: 10;
+  }
+  
+  .circle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+  
+  .icons {
+    display: flex;
+    max-width: 2rem;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .icon-image {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .team-info {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.2rem;
+  }
+  
+  .team-info .name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .team-info .role {
+    font-size: 0.9rem;
+    color: #fbfbfb;
+  }
+  
+  @media (max-width: 1040px) {
+    .team-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .team-info .name {
+      font-size: 1rem;
+    }
+    
+    .team-info .role {
+      font-size: 0.8rem;
+    }
+    
+    .image-style img {
+      width: 18vh;
+      height: 18vh;
+    }
+    
+    .icon-image {
+      width: 22px;
+      height: 22px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .team-info .name {
+      font-size: 0.9rem;
+    }
+    
+    .team-info .role {
+      font-size: 0.7rem;
+    }
+    
+    .image-style img {
+      width: 16vh;
+      height: 16vh;
+    }
+    
+    .icon-image {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  @media (max-width: 744px) {
+    .team-info .name {
+      font-size: 0.8rem;
+    }
+    
+    .team-info .role {
+      font-size: 0.75rem;
+    }
+    
+    .image-style img {
+      width: 12vh;
+      height: 12vh;
+    }
+    
+    .icon-image {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  
+  @media (max-width: 655px) {
+    
+
+    .team-info .name {
+      font-size: 0.6rem;
+    }
+    
+    .team-info .role {
+      font-size: 0.5rem;
+    }
+    
+    .image-style img {
+      width: 11vh;
+      height: 11vh;
+    }
+    
+    .icon-image {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .team-container {
+        grid-template-columns: 1fr;
+      }
+  
+    .team-info .name {
+      font-size: 1rem;
+    }
+    
+    .team-info .role {
+      font-size: 0.8rem;
+    }
+    
+    .image-style img {
+      width: 14vh;
+      height: 14vh;
+    }
+    
+    .icon-image {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  @media (max-width: 480px) {
+    
+    .team-info .name {
+      font-size: 0.8rem;
+    }
+    
+    .team-info .role {
+      font-size: 0.6rem;
+    }
+    
+    .image-style img {
+      width: 12vh;
+      height: 12vh;
+    }
+    
+    .icon-image {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  

@@ -1,0 +1,271 @@
+.contactus-container {
+  display: flex;
+  background-color: #12111c;
+  color: #ffffff;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 100vh; /* Ensures full height */
+}
+
+.left-section,
+.right-section {
+  width: 50%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.consultant-form-container,
+.reach-us {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: linear-gradient(#12111c, #12111c) padding-box,
+    linear-gradient(90deg, #452ed2, #9747ff, #250d40, #6647ff) border-box;
+  border: 0.2rem solid transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.consultant-form h1 {
+  font-size: 2rem;
+}
+
+.consultant-form h2 {
+  font-size: 1rem;
+}
+
+.group {
+  position: relative;
+  margin-bottom: 1.875rem;
+}
+
+.input {
+  font-size: 1rem;
+  padding: 0.625rem;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+}
+
+.input:focus {
+  outline: none;
+}
+
+label {
+  color: #999;
+  font-size: 1.125rem;
+  position: absolute;
+  pointer-events: none;
+  left: 0.3125rem;
+  top: 0.625rem;
+  transition: 0.2s ease all;
+}
+
+.input:focus ~ label,
+.input:valid ~ label {
+  top: -1.25rem;
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.625rem;
+  background-color: #ffffff;
+  color: #12111c;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.3125rem;
+}
+
+.image-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  color: white;
+  padding: 2%;
+}
+
+.overlay-text h1 {
+  font-size: 2rem;
+}
+
+.overlay-text p,
+.overlay-text h2 {
+  font-size: 0.8rem;
+}
+
+.reach-us {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+
+.reach-subtext {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reach-icon {
+  width: 1.25rem;
+  height: auto;
+  margin-right: 0.625rem;
+}
+
+.reach-us p a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.reach-us .line {
+  height: 70%;
+  /* margin-top: 1%; */
+  border-left: 0.125rem solid #ffffff;
+  margin-right: 1.25rem;
+  /* align-items: center; */
+}
+
+
+@media (max-width: 1040px) {
+  .contactus-container {
+    flex-direction: column;
+  }
+
+  .left-section, .right-section {
+    width: 100%;
+  }
+
+  .consultant-form h1 {
+    font-size: 1.8rem;
+  }
+
+  .consultant-form h2, .input {
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .overlay-text h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .consultant-form h1 {
+    font-size: 1.6rem;
+  }
+
+  .consultant-form h2, .input {
+    font-size: 0.85rem;
+  }
+
+  .submit-button {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .overlay-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .overlay-text p,
+  .overlay-text h2 {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .consultant-form h1 {
+    font-size: 1.4rem;
+  }
+
+  .consultant-form h2, .input {
+    font-size: 0.8rem;
+  }
+
+  .submit-button {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .overlay-text h1 {
+    font-size: 1.4rem;
+  }
+
+  .reach-us {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reach-icon {
+    width: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .consultant-form h1 {
+    font-size: 1.2rem;
+  }
+
+  .consultant-form h2, .input {
+    font-size: 0.75rem;
+  }
+
+  .submit-button {
+    padding: 0.35rem;
+    font-size: 0.75rem;
+  }
+
+  .overlay-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .reach-icon {
+    width: 0.875rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .consultant-form h1 {
+    font-size: 1rem;
+  }
+
+  .consultant-form h2, .input {
+    font-size: 0.7rem;
+  }
+
+  .submit-button {
+    padding: 0.3rem;
+    font-size: 0.7rem;
+  }
+
+  .overlay-text h1 {
+    font-size: 1rem;
+  }
+
+  .overlay-text p,
+  .overlay-text h2 {
+    font-size: 0.6rem;
+  }
+}

@@ -1,0 +1,13 @@
+/* src/Cursor.css */
+.cursor {
+    position: absolute;
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    border-radius: 50%;
+    background-color: rgba(30, 144, 255, 0.7); /* Bright blue color */
+    pointer-events: none; /* Prevent cursor from blocking other elements */
+    transition: transform 0.1s ease; /* Smooth movement */
+    box-shadow: 0 0 30px rgba(30, 144, 255, 0.8); /* Bright blue light effect */
+    transform: translate(-50%, -50%); /* Center the cursor */
+  }
+  
