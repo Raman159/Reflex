@@ -1,5 +1,5 @@
 import React from 'react';
-import Button2 from "./btn";
+import Button from "./button";
 import "./CSS/footer.css";
 import Logo2 from "./assets/image/reflex.jpg";
 import Facebook from "./assets/image/facebook.png";
@@ -14,21 +14,23 @@ const Footer = () => {
   return (
     <div className="footer-container">
       {location.pathname !== "/contact" && (
-        <div className="contact">
-          <div className="contact-conatiner">
-            <p className="contact-text">
-              Would You Like To Start Project With Us?
-            </p>
-            <p className="contact-subtext">
-              If you are looking for an IT Service Provider to help you create a
-              remarkable presence online, you have come to the right place.
-            </p>
-          </div>
-          <div className="contact-btn">
-          <Button2 btncontent="Contact Us" link="/contact" />
-
-          </div>
-        </div>
+      <div className="contact">
+      <div className="contact-container">
+        <p className="contact-text">
+          Would You Like To Start Project With Us?
+        </p>
+        <p className="contact-subtext">
+          If you are looking for an IT Service Provider to help you create a
+          remarkable presence online, you have come to the right place.
+        </p>
+      </div>
+      <div className="contact-btn">
+        <Link to ="/contact">
+      <Button text="Contact Us"/>
+      </Link>
+      </div>
+    </div>
+    
       )}
       <div className="footer-content">
         <div className="content-left">

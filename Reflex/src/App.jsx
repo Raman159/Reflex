@@ -11,6 +11,8 @@ import Footer from "./footer";
 import Rocket from "./rocket";
 import ContactPage from "./ContactPage";
 import AboutPage from "./About";
+import ProductPage from "./ProductPage";
+
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/About" element={<AboutPage />} />
+          <Route path="/Product" element={<ProductPage />} />
+          
         </Routes>
 
         <Footer />

@@ -1,76 +1,106 @@
-
 .start-project {
     position: relative;
-    white-space: nowrap; 
-    padding: 10px 20px;
-    font-size: 16px; 
-    color: white;
-    border: none;
+    padding: 0.75rem 1.5rem; 
+    font-size: 1rem;
+    color: black;
+    background-color: white;
+    border: 0.125rem solid #000;
+    border-radius: 2rem;
     cursor: pointer;
     overflow: hidden;
     outline: none;
-    text-shadow: none;
-    border-radius: 100px; 
-    background-color: transparent;
-    transition: background-color 0.5s, transform 0.5s; 
-   
-}
-
-button {
-    display: flex;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 0 10px;
-    letter-spacing: 1px;
+    gap: 0.625rem;
+    letter-spacing: 0.0625rem;
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+.start-project:hover {
+    background: linear-gradient(90deg, blue, purple);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .start-project::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #0000FF 0%, #800080 100%);
-    transition: all 0.5s ease;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 40%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-in-out;
 }
 
 .start-project::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #800080 0%, #0000FF 100%);
-    transition: all 0.5s ease;
+    top: -10%;
+    left: -10%;
+    width: 0.3125rem;
+    height: 0.3125rem;
+    background: #FFF;
+    border-radius: 50%;
+    box-shadow: 0 0 0.625rem #FFF, 0 0 1.25rem #FFF, 0 0 1.875rem #00F, 0 0 2.5rem #800080;
+    opacity: 0;
+    animation: shooting-star 3s linear infinite;
+}
+
+.start-project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.5rem 1.875rem rgba(0, 0, 0, 0.2);
 }
 
 .start-project:hover::before {
-    width: 100%;
-    top: 0;
-    left: 0;
+    transform: translate(-50%, -50%) scale(1);
 }
 
-.start-project:hover::after {
-    width: 100%;
-    bottom: 0;
-    right: 0;
-}
-
-@media (max-width: 768px) {
-    .start-project{
-        padding: 10px 15px;
-        font-size: 14px;
+@keyframes shooting-star {
+    0% {
+        top: -10%;
+        left: -10%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        top: 120%;
+        left: 120%;
+        opacity: 0;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 48rem) {
     .start-project {
-        padding: 8px 12px; 
-        font-size: 12px; 
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+        gap: 0.5rem;
     }
 }
 
-
+@media (max-width: 30rem) {
+    .start-project {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        gap: 0.4rem;
+    }
+}
+@media (max-width: 915px) {
+    .start-project {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        gap: 0.4rem;
+    }
+}
+@media (max-width: 880px) {
+    .start-project {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.60rem;
+        gap: 0.4rem;
+    }
+}

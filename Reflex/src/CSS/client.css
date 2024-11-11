@@ -83,18 +83,34 @@
           height:5rem;
           }
       }
-    @media (max-width:540px)  {
-      .client-card{
-          width: 4rem;
-          height:4rem;
-          }
-      }
-    @media (max-width:450px)  {
-      .client-card{
-          width: 3.5rem;
-          height:3.5rem;
-          }
-      }
+      @media (max-width: 540px) {
+        .client-cards {
+            /* display: grid; */
+            /* grid-template-columns: 1fr 1fr; */
+            justify-items: center;
+            margin-bottom: 3%;
+        }
+    
+        .client-card {
+  
+            position: relative;
+           
+        }
+    
+        .card3 {
+            margin-top: -1rem;;
+        }
+    
+        .card1, .card5 {
+            padding: 0 10%;  
+        }
+    
+        .card2, .card4 {
+            display: none;
+        }
+    }
+    
+    
 .card1{
     background-image:url(./src/assets/image/beyond.png);
     z-index: 1;

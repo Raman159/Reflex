@@ -1,17 +1,21 @@
-/* Base styles */
 .contact {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 60%;
   height: auto;
   margin: 0 auto;
-  gap: 10%;
   padding: 2rem;
+  gap: 2rem;
   border-radius: 1.5rem;
   background: linear-gradient(#000000, #000000) padding-box,
     linear-gradient(90deg, #452ed2, #9747ff, #250d40, #6647ff) border-box;
   border: 0.2rem solid transparent;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+}
+
+.contact-container {
+  flex: 1;
 }
 
 .contact-text {
@@ -24,30 +28,30 @@
 .contact-subtext {
   font-size: 0.8rem;
   color: #f8f6f6;
-  margin-top: 0;
   line-height: 1.6;
+  margin-top: 1rem;
 }
 
 .contact-btn {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.contact-btn .button2 {
+.contact-btn .button {
   white-space: nowrap;
   font-family: Arial, sans-serif;
   font-size: 1.1rem;
   color: #ffffff;
+  background-color: #007bff;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-/* Responsive breakpoints */
-
-/* Large screens - 1040px and above */
 @media (max-width: 1040px) {
   .contact {
     width: 70%;
@@ -66,7 +70,6 @@
   }
 }
 
-/* Medium-large screens - 880px */
 @media (max-width: 880px) {
   .contact {
     width: 80%;
@@ -84,7 +87,6 @@
   }
 }
 
-/* Medium screens - 720px */
 @media (max-width: 720px) {
   .contact {
     flex-direction: column;
@@ -106,7 +108,6 @@
   }
 }
 
-/* Small screens - 540px */
 @media (max-width: 540px) {
   .contact {
     padding: 1.2rem;
@@ -167,12 +168,6 @@
   height: auto;
 }
 
-.contact-subtext {
-  margin-top: 1rem;
-  font-size: 1rem;
-  /* color: #555; */
-  color: white;
-}
 
 .content-mid,
 .content-right {
@@ -188,7 +183,7 @@
 
 h3 {
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   color: white;
 }
 
@@ -202,17 +197,16 @@ ul li {
   font-size: 1rem;
   margin-bottom: 0.5rem;
   position: relative;
-  
 }
- ul li a {
-  text-decoration: none;   
-  color: white;            
-  font-size: 16px;        
-  font-weight: normal;     
+ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 ul li a:hover {
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 .content-mid li:hover {
   font-size: 1rem;
@@ -242,7 +236,7 @@ ul li a:hover {
   transition: filter 0.3s ease;
 }
 
-.social-icons img:hover  {
+.social-icons img:hover {
   filter: brightness(20%) saturate(100%) invert(33%) sepia(100%) saturate(7499%)
     hue-rotate(172deg);
 }

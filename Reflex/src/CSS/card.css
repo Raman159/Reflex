@@ -5,8 +5,8 @@
     align-items: center;
     width: 100%; 
     height: 100%;
-    padding: 1rem;
-    border-radius: 1.5rem;
+    /* padding: 1rem; */
+    border-radius: 15px;
     background: linear-gradient(#12111C, #12111C) padding-box,
                 linear-gradient(180deg, blue, purple) border-box;
     border: 0.1rem solid transparent;
@@ -41,14 +41,17 @@
     color: #ffffff;
     margin-bottom: 0.5rem;
     cursor: pointer;
+    margin-left: -50%;
 }
 
 .description {
     color: #ffffff; 
     font-size: 1.050rem; 
-    line-height: 1.5; 
+    /* line-height: 1.5;  */
     cursor: pointer;
     text-align: center; 
+    margin-bottom: 7%;
+    padding: 2%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -69,11 +72,15 @@
 
     .title {
         font-size: 0.69rem;
+    
+         margin-right: -50%;
+        
     }
 
     .description {
         font-size: 0.86rem;
-        padding: 5px;
+        /* padding: 5px; */
+        /* margin: 5%; */
     }
 }
 
@@ -92,7 +99,7 @@
 
     .description {
         font-size: 0.66rem;
-        padding: 5px;
+        /* padding: 5px; */
     }
 }
 
@@ -111,21 +118,45 @@
 
     .description {
         font-size: 0.8rem;
-        padding: 5px;
+        /* padding: 5px; */
     }
 }
 
 @media only screen and (max-width: 680px) {
     .description {
-        font-size: 0.55rem; 
-        padding: 5px;
+        font-size: 0.8rem; 
+        /* padding: 5px; */
+    }
+}
+@media only screen and (max-width: 650px) {
+    .description {
+        font-size: 0.7rem; 
+        /* padding: 5px; */
+    }
+}
+@media only screen and (max-width: 608px) {
+    .description {
+        font-size: 0.645rem; 
+        /* padding: 5px; */
+    }
+}
+@media only screen and (max-width: 580px) {
+    .description {
+        font-size: 0.6rem; 
+        /* padding: 5px; */
+    }
+}
+@media only screen and (max-width: 515px) {
+    .description {
+        font-size: 0.550rem; 
+        /* padding: 5px; */
     }
 }
 
 
-@media only screen and (max-width: 480px) {
+
+@media only screen and (max-width: 420px) {
     .description {
-        font-size: 0.38rem; 
-        padding: 5px;
+        font-size: 0.5rem; 
     }
 }
