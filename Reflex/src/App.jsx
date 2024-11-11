@@ -12,32 +12,31 @@ import Rocket from "./rocket";
 import ContactPage from "./ContactPage";
 import AboutPage from "./About";
 import ProductPage from "./ProductPage";
-
+import ClientPage from "./ClientPage";
 
 function App() {
   return (
     <Router>
       <div className="app-container">
-
         <Routes>
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             element={
               <>
                 <Rocket />
                 <Services id="services" />
                 <Why id="about" />
                 <CEO id="CEO" />
-                <Client id="Clients"  />
+                <Client id="Clients" />
                 <Ourteam id="team" />
-                <Blog id="Blog"  />
+                <Blog id="Blog" />
               </>
-            } 
+            }
           />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/About" element={<AboutPage />} />
           <Route path="/Product" element={<ProductPage />} />
-          
+          <Route path="/clients" element={<ClientPage />} />
         </Routes>
 
         <Footer />
