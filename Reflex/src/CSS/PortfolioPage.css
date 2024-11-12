@@ -12,3 +12,144 @@
   font-size: 1rem;
   padding: 0 5%;
 }
+
+.cover-image {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.header-text-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.category-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.category-button {
+  background: #1f1f1f;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background 0.3s;
+}
+
+.category-button.active {
+  color: blue;
+}
+
+.category-button:hover {
+  background: #2d2d2d;
+  color: blue;
+}
+
+.portfolio-projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 calc(33.33% - 2.5rem);
+  max-width: calc(33.33% - 2.5rem);
+  height: 12.75rem;
+  border-radius: 0.5rem;
+  overflow: visible;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  position: relative;
+  transition: transform 0.2s;
+  padding: 1rem;
+  align-items: center;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+.project-main-image {
+  position: relative;
+  min-width: 50%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: visible;
+  z-index: 1;
+}
+
+.project-main-image img {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  overflow: visible;
+  z-index: 3;
+  /* background-color: red; */
+}
+
+.project-details {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end; 
+    /* white-space: nowrap;  */
+    height: 100%;
+    z-index: 10;
+    min-width: 50%;
+}
+
+.project-details h3 {
+    font-size: 1.3rem;
+    width: 100%; 
+    text-align: right;
+    /* overflow: hidden;
+    text-overflow: ellipsis;  */
+    z-index: 8;
+  }
+  
+
+.project-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  transform: scale(1.2);
+  background-color: white;
+}
+
+.project-details .visit-link a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.project-details .visit-link a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+.show-more-container {
+  display: flex;
+  justify-content: center;
+  margin: 1% 2%;
+}

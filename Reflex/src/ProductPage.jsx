@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import React, { useState, useRef } from "react";
 import "./CSS/ProductPage.css";
 import Navigation from "./Navigation";
 import Erp from "./assets/image/erp.jpg";
 import Button from "./button";
 
 const ProductPage = () => {
-  const systemData = [
+    const systemData = [
     {
       id: 1,
       title: "ERP SYSTEM",
@@ -88,14 +87,18 @@ const ProductPage = () => {
       brochure: "brochure-path",
     },
   ];
+  const systemRefs = useRef(systemData.map(() => React.createRef()));
 
-  const [selectedSystem, setSelectedSystem] = useState(null);
   const [showViewMore, setShowViewMore] = useState(false);
   const [showRequestDemo, setShowRequestDemo] = useState(false);
+  const [selectedSystem, setSelectedSystem] = useState(null);
+const handleButtonClick = (index) => {
+  systemRefs.current[index].current.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+  });
+};
 
-  const handleButtonClick = (system) => {
-    setSelectedSystem(system === selectedSystem ? null : system);
-  };
 
   const handleViewMoreClick = (system) => {
     setSelectedSystem(system);
@@ -142,11 +145,11 @@ const ProductPage = () => {
       </div>
       <div className="system-section">
         <div className="buttons">
-          {systemData.map((system) => (
+          {systemData.map((system, index) => (
             <button
               key={system.id}
               className="system-button"
-              onClick={() => handleButtonClick(system)}
+              onClick={() => handleButtonClick(index)}
             >
               {system.title}
             </button>
@@ -154,8 +157,12 @@ const ProductPage = () => {
         </div>
 
         <div className="systems-display">
-          {(selectedSystem ? [selectedSystem] : systemData).map((system) => (
-            <div key={system.id} className="system-item">
+          {systemData.map((system, index) => (
+            <div
+              key={system.id}
+              className="system-item"
+              ref={systemRefs.current[index]}
+            >
               <div className="system-details">
                 <h2>{system.title}</h2>
                 <p>
@@ -218,8 +225,7 @@ const ProductPage = () => {
           </div>
         </div>
       )}
-
-      {showRequestDemo && selectedSystem && (
+     {showRequestDemo && selectedSystem && (
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={closeModal}>
@@ -227,7 +233,7 @@ const ProductPage = () => {
             </span>
             <h2>Demo Request For {selectedSystem.title}</h2>
             <form>
-              <div className="grp">
+            <div className="grp">
                 <input type="text" className="input" required placeholder=" " />
                 <label>Name</label>
               </div>
