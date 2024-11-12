@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import "./CSS/ProductPage.css";
 import Navigation from "./Navigation";
-import Erp from './assets/image/erp.jpg';
+import Erp from "./assets/image/erp.jpg";
 import Button from "./button";
 
 const ProductPage = () => {
@@ -16,7 +16,7 @@ const ProductPage = () => {
         "Our powerful ERP system integrates all your core business processes into a single, user-friendly platform. From finance and inventory management to human resources and customer relationship management, Reflex IT Solution's ERP offers seamless automation, real-time insights, and customizable modules to meet your unique needs. Improve productivity, minimize errors, and increase efficiency with our tailored ERP solution designed for modern businesses.",
       image: Erp,
       price: "Nrs. 20000",
-      screenshots: [Erp,Erp],
+      screenshots: [Erp, Erp],
       brochure: "brochure-path",
     },
     {
@@ -32,42 +32,61 @@ const ProductPage = () => {
       brochure: "brochure-path",
     },
     {
-        id: 3,
-        title: "CRM SYSTEM",
-        description:
-          "Reflex IT Solution's CRM System is crafted to help businesses maintain strong customer relationships, track leads, and manage interactions seamlessly. Equipped with intuitive dashboards and robust analytics, our CRM solution offers sales automation, contact management, and personalized customer engagement for businesses of all sizes.",
-        fullDescription: (
-          <>
-            Reflex IT Solution's CRM System is a comprehensive tool designed to enhance customer relationship management. Key features include:
-            <pre>
-              <p>Sales Automation: Streamline lead tracking and manage sales processes efficiently.</p>
-              <p>Contact Management: Centralize customer information for easy access and improved communication.</p>
-              <p>Analytics and Reporting: Real-time data and customizable reports provide actionable insights.</p>
-              <p>Personalized Customer Engagement: Tailor your interactions to improve customer satisfaction and loyalty.</p>
-              <p>Adaptability: Easily customizable to fit the unique requirements of different industries.</p>
-            </pre>
-            With these tools, businesses can enhance customer satisfaction, improve sales effectiveness, and foster stronger customer relationships. Reflex IT Solution’s CRM is user-friendly, adaptable, and packed with powerful tools to drive success in customer engagement.
-          </>
-        ),
-        image: "crm-system-image-path",
-        price: "Nrs.50000",
-        screenshots: ["screenshot1-path", "screenshot2-path"],
-        brochure: "brochure-path",
-  },
-  
-  
-  {
-    id: 4,
-    title: "PROJECT MANAGEMENT SYSTEM",
-    description:
-      "Our Project Management System by Reflex IT Solution is designed to streamline project planning, execution, and tracking. It offers collaborative tools for task management, team communication, and deadline monitoring, helping you complete projects efficiently and on time.",
-    fullDescription:
-      "Reflex IT Solution's Project Management System empowers teams to plan, execute, and track projects with ease. The system integrates essential project planning tools, enabling you to assign tasks, monitor deadlines, and collaborate seamlessly across teams. From task prioritization to resource allocation, each module is customizable to fit different project requirements. The platform's real-time tracking and reporting functions keep all stakeholders updated on project progress, ensuring accountability at every stage. Additionally, built-in communication tools foster team collaboration and help identify potential bottlenecks early, allowing for quick adjustments. Perfect for small teams or large organizations, this project management solution optimizes productivity and ensures that projects are completed on schedule.",
-    image: "project-management-system-image-path",
-    price: "Nrs. 10000",
-    screenshots: ["screenshot1-path", "screenshot2-path"],
-    brochure: "brochure-path",
-},
+      id: 3,
+      title: "CRM SYSTEM",
+      description:
+        "Reflex IT Solution's CRM System is crafted to help businesses maintain strong customer relationships, track leads, and manage interactions seamlessly. Equipped with intuitive dashboards and robust analytics, our CRM solution offers sales automation, contact management, and personalized customer engagement for businesses of all sizes.",
+      fullDescription: (
+        <>
+          Reflex IT Solution's CRM System is a comprehensive tool designed to
+          enhance customer relationship management. Key features include:
+          <pre>
+            <p>
+              Sales Automation: Streamline lead tracking and manage sales
+              processes efficiently.
+            </p>
+            <p>
+              Contact Management: Centralize customer information for easy
+              access and improved communication.
+            </p>
+            <p>
+              Analytics and Reporting: Real-time data and customizable reports
+              provide actionable insights.
+            </p>
+            <p>
+              Personalized Customer Engagement: Tailor your interactions to
+              improve customer satisfaction and loyalty.
+            </p>
+            <p>
+              Adaptability: Easily customizable to fit the unique requirements
+              of different industries.
+            </p>
+          </pre>
+          With these tools, businesses can enhance customer satisfaction,
+          improve sales effectiveness, and foster stronger customer
+          relationships. Reflex IT Solution’s CRM is user-friendly, adaptable,
+          and packed with powerful tools to drive success in customer
+          engagement.
+        </>
+      ),
+      image: "crm-system-image-path",
+      price: "Nrs.50000",
+      screenshots: ["screenshot1-path", "screenshot2-path"],
+      brochure: "brochure-path",
+    },
+
+    {
+      id: 4,
+      title: "PROJECT MANAGEMENT SYSTEM",
+      description:
+        "Our Project Management System by Reflex IT Solution is designed to streamline project planning, execution, and tracking. It offers collaborative tools for task management, team communication, and deadline monitoring, helping you complete projects efficiently and on time.",
+      fullDescription:
+        "Reflex IT Solution's Project Management System empowers teams to plan, execute, and track projects with ease. The system integrates essential project planning tools, enabling you to assign tasks, monitor deadlines, and collaborate seamlessly across teams. From task prioritization to resource allocation, each module is customizable to fit different project requirements. The platform's real-time tracking and reporting functions keep all stakeholders updated on project progress, ensuring accountability at every stage. Additionally, built-in communication tools foster team collaboration and help identify potential bottlenecks early, allowing for quick adjustments. Perfect for small teams or large organizations, this project management solution optimizes productivity and ensures that projects are completed on schedule.",
+      image: "project-management-system-image-path",
+      price: "Nrs. 10000",
+      screenshots: ["screenshot1-path", "screenshot2-path"],
+      brochure: "brochure-path",
+    },
   ];
 
   const [selectedSystem, setSelectedSystem] = useState(null);
@@ -97,6 +116,30 @@ const ProductPage = () => {
   return (
     <>
       <Navigation />
+      <div
+        className="cover-image"
+        style={{ backgroundImage: "url('./src/assets/image/products.jpg')" }}
+      >
+        <h2 className="cover-text">
+          Empowering Digital Transformation with Innovative IT Solutions
+        </h2>
+        <p className="cover-subtext">
+          We’re proud to partner with clients who trust us to bring their
+          visions to life, driving success and inspiring our journey forward.
+        </p>
+      </div>
+      <div className="header-text-content">
+        <h2>
+          Discover Ready-to-Launch Software{" "}
+          <span style={{ color: "blue" }}>- Purchase and Launch Today!</span>
+        </h2>
+
+        <p>
+          Explore our collection of ready-to-launch software solutions designed
+          to streamline your operations. Purchase instantly and start using them
+          right away, with no setup hassles.
+        </p>
+      </div>
       <div className="system-section">
         <div className="buttons">
           {systemData.map((system) => (
@@ -111,25 +154,37 @@ const ProductPage = () => {
         </div>
 
         <div className="systems-display">
-  {(selectedSystem ? [selectedSystem] : systemData).map((system) => (
-    <div key={system.id} className="system-item">
-      <div className="system-details">
-        <h2>{system.title}</h2>
-        <p>{system.description.length > 200 ? `${system.description.slice(0, 200)}...` : system.description}</p>
-        <div className="action-buttons">
-          <button  className="view-more" onClick={() => handleViewMoreClick(system)}>View More</button>
-            
-          <button className="request-demo" onClick={() => handleRequestDemoClick(system)}>Request Demo</button>
-           
-        </div>
-      </div>
-      <div className="system-image">
-        <img src={system.image} alt={`${system.title} graphic`} />
-      </div>
-    </div>
-  ))}
-</div>
+          {(selectedSystem ? [selectedSystem] : systemData).map((system) => (
+            <div key={system.id} className="system-item">
+              <div className="system-details">
+                <h2>{system.title}</h2>
+                <p>
+                  {system.description.length > 200
+                    ? `${system.description.slice(0, 200)}...`
+                    : system.description}
+                </p>
+                <div className="action-buttons">
+                  <button
+                    className="view-more"
+                    onClick={() => handleViewMoreClick(system)}
+                  >
+                    View More
+                  </button>
 
+                  <button
+                    className="request-demo"
+                    onClick={() => handleRequestDemoClick(system)}
+                  >
+                    Request Demo
+                  </button>
+                </div>
+              </div>
+              <div className="system-image">
+                <img src={system.image} alt={`${system.title} graphic`} />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {showViewMore && selectedSystem && (
@@ -143,7 +198,7 @@ const ProductPage = () => {
               <strong>Price:</strong> {selectedSystem.price}
             </h3>
             <p>{selectedSystem.fullDescription}</p>
-            
+
             <div className="screenshots">
               {selectedSystem.screenshots.map((screenshot, index) => (
                 <img
@@ -185,15 +240,15 @@ const ProductPage = () => {
                 <label>Company Name</label>
               </div>
               <div className="grp">
-        <input
-          type="text"
-          className="input"
-          value={selectedSystem.title}
-          readOnly
-          placeholder=" "
-        />
-        <label>Requested System</label>
-      </div>
+                <input
+                  type="text"
+                  className="input"
+                  value={selectedSystem.title}
+                  readOnly
+                  placeholder=" "
+                />
+                <label>Requested System</label>
+              </div>
               <div className="grp-email">
                 <input
                   type="email"
@@ -203,8 +258,7 @@ const ProductPage = () => {
                 />
                 <label>Email</label>
               </div>
-              
-             
+
               <div className="grp">
                 <textarea className="input" placeholder=" " rows="3"></textarea>
                 <label>Message (optional)</label>

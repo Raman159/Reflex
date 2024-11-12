@@ -13,6 +13,7 @@ import ContactPage from "./ContactPage";
 import AboutPage from "./About";
 import ProductPage from "./ProductPage";
 import ClientPage from "./ClientPage";
+import PortfolioPage from "./PortfolioPage";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/About" element={<AboutPage />} />
           <Route path="/Product" element={<ProductPage />} />
           <Route path="/clients" element={<ClientPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
         </Routes>
 
         <Footer />

@@ -52,7 +52,7 @@ const About = () => {
   return (
     <>
       <Navigation />
-      <div className="cover-image">
+      <div className="cover-image" style={{backgroundImage: "url('./src/assets/image/about-img.jpg')",}}>
         <h2 className="cover-text">
           We blend innovation and expertise to deliver tailored software
           solutions.
