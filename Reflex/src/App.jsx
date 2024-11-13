@@ -1,6 +1,4 @@
-// import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Navigation from "./Navigation";
 import Services from "./Services";
 import Why from "./Card-2";
 import Client from "./client";
@@ -14,6 +12,7 @@ import AboutPage from "./About";
 import ProductPage from "./ProductPage";
 import ClientPage from "./ClientPage";
 import PortfolioPage from "./PortfolioPage";
+import Dashboard from "./dashboard";
 
 function App() {
   return (
@@ -34,13 +33,13 @@ function App() {
               </>
             }
           />
+          <Route path="/admin" element={<Dashboard />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/About" element={<AboutPage />} />
           <Route path="/Product" element={<ProductPage />} />
           <Route path="/clients" element={<ClientPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
         </Routes>
-
         <Footer />
       </div>
     </Router>
