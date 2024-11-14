@@ -6,7 +6,6 @@ const BlogMgmt = ({ blogs, addBlog, deleteBlog }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  // Handle file input (image selection)
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -15,11 +14,9 @@ const BlogMgmt = ({ blogs, addBlog, deleteBlog }) => {
     }
   };
 
-  // Handle the form submission for adding a new blog
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title && description && image) {
-      // Create the new blog object and add it to the list
       addBlog({ title, description, imageUrl: image });
       setTitle("");
       setDescription("");

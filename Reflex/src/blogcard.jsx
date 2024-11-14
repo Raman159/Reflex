@@ -11,7 +11,7 @@ const BlogCard = ({ blog }) => {
         <img src={imageUrl} alt={title || "Blog Cover"} className="blog-image" />
       )}
       <div className="blog-content">
-        <h2>{title || "No Title Available"}</h2>
+        <h2>{title || "No Title there"}</h2>
         <p>{excert || "No description available."}</p>
         <div className="seemore-button">
           <Button2 btncontent="See More" />

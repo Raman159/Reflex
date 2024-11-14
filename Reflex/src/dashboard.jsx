@@ -6,7 +6,7 @@ import './dashboard.css';
 const Dashboard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [blogs, setBlogs] = useState([]); // To store the list of blogs
+  const [blogs, setBlogs] = useState([]); 
 
   const handleLogin = (role) => {
     setIsLoggedIn(true);
