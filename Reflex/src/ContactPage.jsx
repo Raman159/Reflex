@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import Mail from "./assets/image/Mail.png";
 import Location from "./assets/image/Location.png";
 import iPhone from "./assets/image/iPhone.png";
+import Button from './button';
 
 function ContactPage() {
   return (
@@ -59,9 +60,8 @@ function ContactPage() {
                   <span className="input-highlight"></span>
                   <label>Message</label>
                 </div>
-                <button type="submit" className="form-submit-button">
-                  Submit
-                </button>
+                <Button text="Submit" type="submit" className="form-submit-button"/>
+              
               </form>
             </div>
           </div>

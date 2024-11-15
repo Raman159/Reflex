@@ -1,0 +1,144 @@
+.start-project-page-container {
+    display: flex;
+    background-color: #12111c;
+    color: #ffffff;
+    width: 90%;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.form-left-section {
+    width: 60%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-right-section {
+    width: 40%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background-image: url('./assets/image/startprojectbc.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.project-form-wrapper {
+    width: 100%;
+    padding: 1rem;
+}
+.project-form form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-form h1 {
+    font-size: 2rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.875rem;
+    /* display: flex; */
+    width: 50%;
+    padding: 2%;
+}
+.input-group-msg{
+       position: relative;
+    margin-bottom: 1.875rem;
+    /* display: flex; */
+    width: 100%;
+    padding: 2%;
+}
+.input-group-doc{
+    position: relative;
+    margin-bottom: 1.875rem;
+    /* display: flex; */
+    width: 100%;
+    padding: 2%;
+}
+.input-group-dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.input-field {
+    font-size: 1rem;
+    padding: 0.625rem;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    background-color: #12111c;
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+label {
+    color: #999;
+    font-size: 1.125rem;
+    position: absolute;
+    pointer-events: none;
+    left: 0.3125rem;
+    top: 0.625rem;
+    transition: 0.2s ease all;
+}
+
+.input-field:focus ~ label,
+.input-field:not(:placeholder-shown) ~ label {
+    top: -1.25rem;
+    font-size: 0.875rem;
+    color: #ffffff;
+}
+
+.dropdown {
+    background-color: #000;
+    color: #fff;
+    padding: 0.625rem;
+    border-radius: 5px;
+    border: none;
+    width: 85%;
+}
+
+.dropdown-btn {
+    background-color: #ffffff;
+    color: #12111c;
+    padding: 0.625rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 1rem;
+}
+
+.dropdown-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.form-submit-button {
+    width: 100%;
+    padding: 0.625rem;
+    background-color: #ffffff;
+    color: #12111c;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.3125rem;
+}
+
+.form-right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    text-align: left;
+}

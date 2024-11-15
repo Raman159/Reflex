@@ -13,6 +13,7 @@ import ProductPage from "./ProductPage";
 import ClientPage from "./ClientPage";
 import PortfolioPage from "./PortfolioPage";
 import Dashboard from "./dashboard";
+import StartProject from "./StartProject";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/Product" element={<ProductPage />} />
           <Route path="/clients" element={<ClientPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/StartProject" element={<StartProject />} />
         </Routes>
         <Footer />
       </div>

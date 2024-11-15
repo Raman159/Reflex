@@ -2,12 +2,12 @@ import "./CSS/Navigation.css";
 import Logo from "./assets/image/Logo.png";
 import AnimatedButton from "./button";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const [isClosing, setIsClosing] = useState(false); 
+  const [isClosing, setIsClosing] = useState(false);
 
   const toggleMenu = () => {
     if (isOpen) {
@@ -26,11 +26,7 @@ export const Navigation = () => {
   };
 
   const handleScroll = () => {
-    if (window.scrollY > 100) {
-      setIsSticky(true);
-    } else {
-      setIsSticky(false);
-    }
+    setIsSticky(window.scrollY > 100);
   };
 
   useEffect(() => {
@@ -102,7 +98,11 @@ export const Navigation = () => {
             </Link>
           </li>
         </ul>
-        {!isSticky && <AnimatedButton text="Start Project" />}
+        {!isSticky && (
+          <Link to="/StartProject">
+            <AnimatedButton text="Start Project" />
+          </Link>
+        )}
       </nav>
     </div>
   );

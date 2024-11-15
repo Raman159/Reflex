@@ -4,9 +4,13 @@
   color: #ffffff;
   width: 90%;
   margin: 0 auto;
-  min-height: 100vh; /* Ensures full height */
+  min-height: 100vh;
 }
-
+.form-submit-button {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
 .contact-left-section,
 .contact-right-section {
   width: 50%;
@@ -58,7 +62,7 @@ label {
   color: #999;
   font-size: 1.125rem;
   position: absolute;
-  pointer-events: none; 
+  pointer-events: none;
   left: 0.3125rem;
   top: 0.625rem;
   transition: 0.2s ease all;
@@ -117,7 +121,7 @@ label {
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
-  padding:4%;
+  padding: 4%;
 }
 
 .reach-text {
@@ -230,9 +234,9 @@ label {
     align-items: flex-start;
     padding: 0.5rem;
   }
-.reach-text{
-  padding: 1rem;
-}
+  .reach-text {
+    padding: 1rem;
+  }
   .consultant-form h2,
   .input-field {
     font-size: 0.8rem;
@@ -256,7 +260,7 @@ label {
   .contact-page-container {
     flex-direction: column;
     width: 100%;
-    padding: 0.25rem; /* Adjust padding */
+    padding: 0.25rem;
   }
 
   .contact-left-section,
@@ -267,26 +271,26 @@ label {
   }
 
   .consultant-form h1 {
-    font-size: 1.2rem; /* Scales down the heading */
+    font-size: 1.2rem;
   }
 
   .consultant-form h2,
   .input-field {
-    font-size: 0.7rem; /* Scales down form inputs */
+    font-size: 0.7rem; 
   }
 
   .form-submit-button {
     padding: 0.375rem;
-    font-size: 0.75rem; /* Reduces button size */
+    font-size: 0.75rem; 
   }
 
   .overlay-message h1 {
-    font-size: 1.2rem; /* Scales down the overlay title */
+    font-size: 1.2rem; 
   }
 
   .overlay-message p,
   .overlay-message h2 {
-    font-size: 0.6rem; /* Scales down overlay paragraph */
+    font-size: 0.6rem; 
   }
 
   .reach-details {
@@ -296,15 +300,15 @@ label {
   }
 
   .reach-details p a {
-    font-size: 0.6rem; /* Scales down links in reach details */
+    font-size: 0.6rem;
   }
 
   .reach-details h2 {
-    font-size: 1.2rem; /* Scales down the reach details heading */
+    font-size: 1.2rem; 
   }
 
   .image-overlay-section {
-    height: 180px; /* Adjust image height */
+    height: 180px;
   }
 
   .vertical-line {
@@ -312,7 +316,7 @@ label {
   }
 
   .reach-icon {
-    width: 0.8rem; /* Adjust icon size */
+    width: 0.8rem;
     margin-right: 0.375rem;
   }
 }
