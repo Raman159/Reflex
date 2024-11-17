@@ -1,21 +1,25 @@
-// import React from "react";
 import "./CSS/BlogCard.css";
-import Button2 from "./btn";
 
-const BlogCard = ({ blog }) => {
-  const { imageUrl, title, excert } = blog || {};
+const BlogCard = ({ blog, showContent }) => {
+  const { imageUrl, title, excert, author, content } = blog || [];
 
   return (
     <div className="blog-card">
       {imageUrl && (
-        <img src={imageUrl} alt={title || "Blog Cover"} className="blog-image" />
+        <img
+          src={imageUrl}
+          alt={title || "Blog Cover"}
+          className="blog-image"
+        />
       )}
       <div className="blog-content">
         <h2>{title || "No Title there"}</h2>
+        <p className="author-main">
+  Written by <span className="author">{author || "No author name available"}</span> on
+</p>
+
         <p>{excert || "No description available."}</p>
-        <div className="seemore-button">
-          <Button2 btncontent="See More" />
-        </div>
+        {showContent && content && <p>{content}</p>}
       </div>
     </div>
   );

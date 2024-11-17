@@ -86,6 +86,8 @@ const PortfolioPage = () => {
           At Reflex IT Solution, our portfolio reflects a dedication to creating
           powerful digital solutions that empower businesses.
         </p>
+        <hr style={{ borderColor: 'white', borderWidth: '1px' }} />
+
       </div>
 
       <div className="category-buttons">

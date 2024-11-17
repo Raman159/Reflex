@@ -73,7 +73,7 @@ export const Navigation = () => {
             </Link>
           </li>
           <li>
-            <Link to="/services" onClick={closeMenu}>
+            <Link to="/ServicesPage" onClick={closeMenu}>
               Services
             </Link>
           </li>

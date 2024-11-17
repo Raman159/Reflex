@@ -32,13 +32,18 @@ const ClientPage = () => {
   return (
     <>
       <Navigation />
-      <div className="cover-image" style={{backgroundImage: "url('./src/assets/image/clients.jpg')",}}>
+      <div
+        className="cover-image"
+        style={{ backgroundImage: "url('./src/assets/image/clients.jpg')" }}
+      >
         <h2 className="cover-text">
-        Trusted Clients: The Brands That Inspire Our Journey
+          Trusted Clients: The Brands That Inspire Our Journey
         </h2>
         <p className="cover-subtext">
-        We’re proud to partner with clients who trust us to bring their visions to life, driving success and inspiring our journey forward.
+          We’re proud to partner with clients who trust us to bring their
+          visions to life, driving success and inspiring our journey forward.
         </p>
+        <hr style={{ borderColor: "white", borderWidth: "1px" }} />
       </div>
       <div className="client-text-h4">Delivering Success to Our Clients</div>
       <div className="client-gallery-wrapper">

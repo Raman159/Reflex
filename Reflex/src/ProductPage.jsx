@@ -142,6 +142,8 @@ const handleButtonClick = (index) => {
           to streamline your operations. Purchase instantly and start using them
           right away, with no setup hassles.
         </p>
+        <hr style={{ borderColor: 'white', borderWidth: '1px' }} />
+
       </div>
       <div className="system-section">
         <div className="buttons">

@@ -14,6 +14,8 @@ import ClientPage from "./ClientPage";
 import PortfolioPage from "./PortfolioPage";
 import Dashboard from "./dashboard";
 import StartProject from "./StartProject";
+import BlogPage from "./BlogPage";
+import ServicesPage from "./ServicesPage";
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
           <Route path="/clients" element={<ClientPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/StartProject" element={<StartProject />} />
+          <Route path="/BlogPage" element={<BlogPage />} />
+          <Route path="/ServicesPage" element={<ServicesPage />} />
         </Routes>
         <Footer />
       </div>

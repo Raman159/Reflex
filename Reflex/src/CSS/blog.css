@@ -1,6 +1,22 @@
-.blog h1{
-  color:white;
+.text {
+  font-size: 1.5rem;
+  /* font-weight: bold; */
+  text-align: center;
+  color: #ffffff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
-.blog p{
-  color:white;
+
+.sub-text {
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
+  /* font-style: italic; */
+}
+
+.seemore-button {
+  display: flex;
+  justify-content: center;
+  padding: 0% 20% 2% 20%;
 }
