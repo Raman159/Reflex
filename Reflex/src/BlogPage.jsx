@@ -62,7 +62,21 @@ const BlogPage = () => {
           {blogs && blogs.length > 0 ? (
             blogs.map((blog, index) => (
               <div key={index}>
-                <BlogCard blog={blog} showContent={expandedBlog === blog.id} />
+                <BlogCard blog={blog} />
+                {expandedBlog === blog.id && (
+                  <div
+                    style={{
+                      width: "80%",
+                      margin: "0 10%",
+                     fontSize:"1rem",
+                      background: "transparent",
+                      color:"white",
+                      textAlign:"justify",
+                    }}
+                  >
+                    {blog.content}
+                  </div>
+                )}
                 <div className="seemore-button">
                   <Button2
                     btncontent={
@@ -71,7 +85,13 @@ const BlogPage = () => {
                     onClick={() => handleReadMore(blog.id)}
                   />
                 </div>
-                <hr style={{ borderColor: "white", borderWidth: "3px", margin:"2% 10%"}} />
+                <hr
+                  style={{
+                    borderColor: "white",
+                    borderWidth: "3px",
+                    margin: "2% 10%",
+                  }}
+                />
               </div>
             ))
           ) : (

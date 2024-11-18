@@ -10,7 +10,7 @@
   width: 80%;
   margin: 0 auto;
   max-height: auto;
-  /* background-color: rgb(54, 49, 49); */
+  gap: 1rem;
   border-radius: 15px;
 }
 
@@ -23,19 +23,14 @@
 
 .author-main .author {
   font-style: normal;
-  /* color: #00bfff;
-  color: #32cd32;
-  color: #ff1493; */
   color: #9b59b6;
   font-weight: bold; 
 }
-
 
 .blog-text {
   font-size: 1.5rem;
   color: white;
   text-align: center;
-  /* margin-top: 2rem; */
 }
 
 .blog-subtext {
@@ -53,12 +48,10 @@
 }
 
 .blog-content {
-  /* padding: 2rem; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   flex-grow: 1;
-  /* margin-bottom: 1.5rem; */
   overflow: hidden;
 }
 
@@ -70,11 +63,93 @@
 
 .blog-content p {
   font-size: 1rem;
-  /* line-height: 1.5; */
   margin-bottom: 1rem;
   text-align: left;
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow: hidden;
   text-align: justify;
+}
+
+/* Breakpoints for responsiveness */
+
+@media screen and (max-width: 1040px) {
+  .blog-card {
+    width: 90%;
+  }
+  .blog-image {
+    width: 60%;
+    height: 12rem;
+  }
+  .blog-content h2 {
+    font-size: 1.6rem;
+  }
+  .blog-content p {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .blog-card {
+    width: 95%;
+  }
+  .blog-image {
+    width: 70%;
+    height: 10rem;
+  }
+  .blog-content h2 {
+    font-size: 1.4rem;
+  }
+  .blog-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .blog-card {
+    width: 100%;
+    flex-direction: column;
+  }
+  .blog-image {
+    width: 80%;
+    height: 10rem;
+  }
+  .blog-content h2 {
+    font-size: 1.3rem;
+  }
+  .blog-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blog-card {
+    width: 100%;
+  }
+  .blog-image {
+    width: 100%;
+    height: 8rem;
+  }
+  .blog-content h2 {
+    font-size: 1.2rem;
+  }
+  .blog-content p {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .blog-card {
+    width: 100%;
+  }
+  .blog-image {
+    width: 100%;
+    height: 7rem;
+  }
+  .blog-content h2 {
+    font-size: 1.1rem;
+  }
+  .blog-content p {
+    font-size: 0.8rem;
+  }
 }

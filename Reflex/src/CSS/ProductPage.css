@@ -223,21 +223,27 @@ textarea.input {
 }
 
 .submit-button {
-  width: 100%;
-  padding: 0.625rem;
-  background-color: #acacac;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
+  background: linear-gradient(to right, #5d00ff, #9500ff);
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 0.3125rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background 0.3s ease-in-out;
 }
 
 .submit-button:hover {
-  background-color: #9b59b6;
+  background: linear-gradient(to right, #9500ff, #8000ff);
+  transform: scale(1.05);
 }
+
+.submit-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 
 @media (max-width: 1040px) {
   .system-item {
@@ -323,4 +329,10 @@ textarea.input {
   .modal h2 {
     font-size: 1.2rem;
   }
+}
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: block;
 }

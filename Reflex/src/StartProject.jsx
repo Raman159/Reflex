@@ -5,6 +5,13 @@ import { useState } from "react";
 
 function StartProject() {
   const [showOtherInput, setShowOtherInput] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formErrors, setFormErrors] = useState({
+    name: "",
+    contact: "",
+    email: "",
+    select: "",
+  });
 
   const handleSelectChange = (event) => {
     if (event.target.value === "Other") {
@@ -14,51 +21,115 @@ function StartProject() {
     }
   };
 
+  const validateForm = (form) => {
+    const errors = {
+      name: "",
+      contact: "",
+      email: "",
+      select: "",
+    };
+
+    const name = form.querySelector('input[type="text"]');
+    const contact = form.querySelector('input[type="tel"]');
+    const email = form.querySelector('input[type="email"]');
+    const select = form.querySelector('select');
+
+    if (!name.value) {
+      errors.name = "Name is required.";
+    }
+    if (!contact.value || !/^\d{10}$/.test(contact.value)) {
+      errors.contact = "Please enter a valid 10-digit contact number.";
+    }
+    if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
+      errors.email = "Please enter a valid email address.";
+    }
+    if (!select.value) {
+      errors.select = "Please select a service.";
+    }
+    if (select.value === "Other" && !form.querySelector(".input-container-others input").value) {
+      errors.select = "Please specify other.";
+    }
+
+    return errors;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const errors = validateForm(form);
+
+    setFormErrors(errors);
+
+    if (Object.values(errors).every((error) => error === "")) {
+      setFormSubmitted(true);
+      setTimeout(() => {
+        setFormSubmitted(false);
+      }, 5000); // Hide after 5 seconds
+    }
+  };
+
   return (
     <>
       <Navigation />
+      {formSubmitted && (
+        <div
+          style={{
+            position: "fixed",
+            top: "20px",
+            right: "20px",
+            backgroundColor: "green",
+            color: "white",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            fontWeight: "bold",
+            zIndex: 1000,
+          }}
+        >
+          Submitted successfully. We will reach out to you soon.
+        </div>
+      )}
+
       <div className="start-project-page-container">
         <div className="form-left-container">
           <div className="form-wrapper">
             <div className="form-section">
               <h1>Kickstart Your Project</h1>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="input-container">
                   <input
-                    required
                     type="text"
                     className="input-field"
                     placeholder=""
                   />
                   <span className="input-highlight"></span>
                   <label>Name</label>
+                  {formErrors.name && <div style={{ color: 'red' }}>{formErrors.name}</div>}
                 </div>
 
                 <div className="input-container">
                   <input
-                    required
                     type="tel"
                     className="input-field"
                     placeholder=""
                   />
                   <span className="input-highlight"></span>
                   <label>Contact </label>
+                  {formErrors.contact && <div style={{ color: 'red' }}>{formErrors.contact}</div>}
                 </div>
 
                 <div className="input-container">
                   <input
-                    required
                     type="email"
                     className="input-field"
                     placeholder=""
                   />
                   <span className="input-highlight"></span>
                   <label>Email Address</label>
+                  {formErrors.email && <div style={{ color: 'red' }}>{formErrors.email}</div>}
                 </div>
 
                 <div className="input-container">
                   <select
-                    required
                     className="input-field"
                     onChange={handleSelectChange}
                   >
@@ -72,6 +143,7 @@ function StartProject() {
                   </select>
                   <span className="input-highlight"></span>
                   <label>What are you looking for?</label>
+                  {formErrors.select && <div style={{ color: 'red' }}>{formErrors.select}</div>}
                 </div>
 
                 {showOtherInput && (
@@ -88,7 +160,6 @@ function StartProject() {
 
                 <div className="message-container">
                   <textarea
-                    required
                     className="input-field message-field"
                     placeholder=""
                   ></textarea>

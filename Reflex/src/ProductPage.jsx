@@ -2,10 +2,9 @@ import React, { useState, useRef } from "react";
 import "./CSS/ProductPage.css";
 import Navigation from "./Navigation";
 import Erp from "./assets/image/erp.jpg";
-import Button from "./button";
 
 const ProductPage = () => {
-    const systemData = [
+  const systemData = [
     {
       id: 1,
       title: "ERP SYSTEM",
@@ -92,13 +91,12 @@ const ProductPage = () => {
   const [showViewMore, setShowViewMore] = useState(false);
   const [showRequestDemo, setShowRequestDemo] = useState(false);
   const [selectedSystem, setSelectedSystem] = useState(null);
-const handleButtonClick = (index) => {
-  systemRefs.current[index].current.scrollIntoView({
-    behavior: "smooth",
-    block: "center",
-  });
-};
-
+  const handleButtonClick = (index) => {
+    systemRefs.current[index].current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  };
 
   const handleViewMoreClick = (system) => {
     setSelectedSystem(system);
@@ -114,6 +112,74 @@ const handleButtonClick = (index) => {
     setShowViewMore(false);
     setShowRequestDemo(false);
     setSelectedSystem(null);
+  };
+
+  const [requestDemoFormData, setRequestDemoFormData] = useState({
+    name: "",
+    contact: "",
+    companyName: "",
+    email: "",
+    message: "",
+    remarks: "",
+  });
+
+  const [formErrors, setFormErrors] = useState({});
+
+  const validateRequestDemo = (formData) => {
+    let tempErrors = { name: "", contact: "", companyName: "", email: "" };
+    let isValid = true;
+
+    if (!formData.name.trim()) {
+      tempErrors.name = "Name is required.";
+      isValid = false;
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
+      tempErrors.name = "Name can only contain alphabets and spaces.";
+      isValid = false;
+    } else if (formData.name.length < 2) {
+      tempErrors.name = "Name must be at least 2 characters.";
+      isValid = false;
+    }
+
+    if (!formData.contact.trim()) {
+      tempErrors.contact = "Contact number is required.";
+      isValid = false;
+    } else if (!/^[0-9]{10}$/.test(formData.contact)) {
+      tempErrors.contact = "Contact number must be 10 digits.";
+      isValid = false;
+    } else if (/^0+$/.test(formData.contact)) {
+      tempErrors.contact = "Contact number cannot be all zeros.";
+      isValid = false;
+    }
+
+    if (!formData.companyName.trim()) {
+      tempErrors.companyName = "Company name is required.";
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      tempErrors.email = "Email is required.";
+      isValid = false;
+    } else if (
+      !/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(formData.email)
+    ) {
+      tempErrors.email = "Please enter a valid email address.";
+      isValid = false;
+    }
+
+    return { isValid, errors: tempErrors };
+  };
+
+  const handleDemoSubmit = (e) => {
+    e.preventDefault();
+
+    const { isValid, errors } = validateRequestDemo(requestDemoFormData);
+
+    if (isValid) {
+      console.log("Form Submitted Successfully!", requestDemoFormData);
+      closeModal();
+    } else {
+      setFormErrors(errors);
+    }
   };
 
   return (
@@ -142,8 +208,7 @@ const handleButtonClick = (index) => {
           to streamline your operations. Purchase instantly and start using them
           right away, with no setup hassles.
         </p>
-        <hr style={{ borderColor: 'white', borderWidth: '1px' }} />
-
+        <hr style={{ borderColor: "white", borderWidth: "1px" }} />
       </div>
       <div className="system-section">
         <div className="buttons">
@@ -227,25 +292,69 @@ const handleButtonClick = (index) => {
           </div>
         </div>
       )}
-     {showRequestDemo && selectedSystem && (
+      {showRequestDemo && selectedSystem && (
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={closeModal}>
               &times;
             </span>
             <h2>Demo Request For {selectedSystem.title}</h2>
-            <form>
-            <div className="grp">
-                <input type="text" className="input" required placeholder=" " />
+            <form onSubmit={handleDemoSubmit}>
+              <div className="grp">
+                <input
+                  type="text"
+                  className="input"
+                  placeholder=" "
+                  value={requestDemoFormData.name}
+                  onChange={(e) =>
+                    setRequestDemoFormData({
+                      ...requestDemoFormData,
+                      name: e.target.value,
+                    })
+                  }
+                />
                 <label>Name</label>
+                {formErrors.name && (
+                  <span className="error">{formErrors.name}</span>
+                )}
               </div>
+
               <div className="grp">
-                <input type="text" className="input" required placeholder=" " />
+                <input
+                  type="text"
+                  className="input"
+                  placeholder=" "
+                  value={requestDemoFormData.contact}
+                  onChange={(e) =>
+                    setRequestDemoFormData({
+                      ...requestDemoFormData,
+                      contact: e.target.value,
+                    })
+                  }
+                />
                 <label>Contact</label>
+                {formErrors.contact && (
+                  <span className="error">{formErrors.contact}</span>
+                )}
               </div>
+
               <div className="grp">
-                <input type="text" className="input" required placeholder=" " />
+                <input
+                  type="text"
+                  className="input"
+                  placeholder=" "
+                  value={requestDemoFormData.companyName}
+                  onChange={(e) =>
+                    setRequestDemoFormData({
+                      ...requestDemoFormData,
+                      companyName: e.target.value,
+                    })
+                  }
+                />
                 <label>Company Name</label>
+                {formErrors.companyName && (
+                  <span className="error">{formErrors.companyName}</span>
+                )}
               </div>
               <div className="grp">
                 <input
@@ -261,12 +370,20 @@ const handleButtonClick = (index) => {
                 <input
                   type="email"
                   className="input"
-                  required
                   placeholder=" "
+                  value={requestDemoFormData.email}
+                  onChange={(e) =>
+                    setRequestDemoFormData({
+                      ...requestDemoFormData,
+                      email: e.target.value,
+                    })
+                  }
                 />
                 <label>Email</label>
+                {formErrors.email && (
+                  <span className="error">{formErrors.email}</span>
+                )}
               </div>
-
               <div className="grp">
                 <textarea className="input" placeholder=" " rows="3"></textarea>
                 <label>Message (optional)</label>

@@ -1,24 +1,33 @@
 import "./CSS/BlogCard.css";
 
 const BlogCard = ({ blog, showContent }) => {
-  const { imageUrl, title, excert, author, content } = blog || [];
+  const {
+    title = "No Title Available",
+    excert = "No description available.",
+    author = "Unknown Author",
+    content = null,
+    documents = [],
+  } = blog || {};
+
+  const blogImage = documents.find(
+    (doc) => doc?.documentType === "blogImage"
+  )?.document;
 
   return (
     <div className="blog-card">
-      {imageUrl && (
+      {blogImage && (
         <img
-          src={imageUrl}
-          alt={title || "Blog Cover"}
+          src={`http://192.168.1.166:9000/static/${blogImage}`}
+          alt={title}
           className="blog-image"
         />
       )}
       <div className="blog-content">
-        <h2>{title || "No Title there"}</h2>
+        <h2>{title}</h2>
         <p className="author-main">
-  Written by <span className="author">{author || "No author name available"}</span> on
-</p>
-
-        <p>{excert || "No description available."}</p>
+          Written by <span className="author">{author}</span>
+        </p>
+        <p>{excert}</p>
         {showContent && content && <p>{content}</p>}
       </div>
     </div>
