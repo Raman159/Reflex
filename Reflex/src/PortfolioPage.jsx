@@ -1,39 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import Navigation from "./Navigation";
 import "./CSS/PortfolioPage.css";
 import Button2 from "./btn";
-
-const portfolioData = [
-  {
-    id: 1,
-    category: "Web App",
-    title: "Project A",
-    companyName: "Nepal Electricity Authority",
-    visitLink: "https://example.com/projectA",
-    logo: "./src/assets/image/box.png",
-    mainImage: "./src/assets/image/portfolio-img-1.png",
-  },
-  {
-    id: 2,
-    category: "Mobile App",
-    title: "Project B",
-    companyName: "Dogs Nepal",
-    visitLink: "https://example.com/projectB",
-    logo: "./src/assets/image/NEA.png",
-    mainImage: "./src/assets/image/portfolio-img-2.png",
-  },
-  {
-    id: 3,
-    category: "Custom Software",
-    title: "Project C",
-    companyName: "Company C",
-    visitLink: "https://example.com/projectC",
-    logo: "./src/assets/image/playsmart.png",
-    mainImage: "./src/assets/image/portfolio-img-3.png",
-  },
-];
-
-const categories = ["All", "Web App", "Mobile App", "Custom Software"];
 
 const backgroundImages = [
   "url('./src/assets/image/portfolio1.jpg')",
@@ -43,17 +12,81 @@ const backgroundImages = [
   "url('./src/assets/image/portfolio5.jpg')",
   "url('./src/assets/image/portfolio6.jpg')",
 ];
+const appType = [
+  "All",
+  "WebAPP",
+  "MobAPP",
+  "Software Development",
+  "Digital Marketing",
+  "E-Commerce",
+  "Others",
+];
+
+// Map appType keys to display names
+const appTypeDisplayNames = {
+  All: "All",
+  WebAPP: "Web Development",
+  MobAPP: "Mobile Development",
+  "Software Development": "Software Development",
+  "Digital Marketing": "Digital Marketing",
+  "E-Commerce": "E-Commerce",
+  Others: "Other Projects",
+};
 
 const PortfolioPage = () => {
+  const [portfolio, setPortfolio] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [visibleProjects, setVisibleProjects] = useState(6);
 
+  const getPortfolio = async () => {
+    try {
+      const response = await axios.get(
+        "http://192.168.1.166:9000/api/portfolios"
+      );
+      if (response.status === 200) {
+        const processedData = response.data.data.map((project) => {
+          const imageDoc = project.portfolios.find(
+            (doc) => doc.documentType === "portfolioImage"
+          );
+          const logoDoc = project.portfolios.find(
+            (doc) => doc.documentType === "portfolioLogo"
+          );
+
+          const validAppTypes = [
+            "WebAPP",
+            "MobAPP",
+            "Software Development",
+            "Digital Marketing",
+            "E-Commerce",
+          ];
+          const appType = validAppTypes.includes(project.appType)
+            ? project.appType
+            : "Others";
+
+          return {
+            ...project,
+            portfolioImage: imageDoc?.document || "",
+            portfolioLogo: logoDoc?.document || "",
+            appType,
+          };
+        });
+        setPortfolio(processedData);
+      } else {
+        console.error("Failed to fetch data: ", response.statusText);
+      }
+    } catch (error) {
+      console.error("Failed to fetch portfolio data:", error);
+    }
+  };
+
+  useEffect(() => {
+    getPortfolio();
+  }, []);
+
   const filteredData =
     selectedCategory === "All"
-      ? portfolioData
-      : portfolioData.filter(
-          (project) => project.category === selectedCategory
-        );
+      ? portfolio
+      : portfolio.filter((project) => project.appType === selectedCategory);
 
   const handleShowMore = () => {
     setVisibleProjects((prevVisible) => prevVisible + 3);
@@ -86,12 +119,11 @@ const PortfolioPage = () => {
           At Reflex IT Solution, our portfolio reflects a dedication to creating
           powerful digital solutions that empower businesses.
         </p>
-        <hr style={{ borderColor: 'white', borderWidth: '1px' }} />
-
+        <hr style={{ borderColor: "white", borderWidth: "1px" }} />
       </div>
 
       <div className="category-buttons">
-        {categories.map((category) => (
+        {appType.map((category) => (
           <button
             key={category}
             className={`category-button ${
@@ -102,7 +134,7 @@ const PortfolioPage = () => {
               setVisibleProjects(6);
             }}
           >
-            {category}
+            {appTypeDisplayNames[category]}
           </button>
         ))}
       </div>
@@ -118,18 +150,22 @@ const PortfolioPage = () => {
             }}
           >
             <div className="project-main-image">
-              <img src={project.mainImage} alt={`${project.title} Main`} />
+              <img
+                src={`http://192.168.1.166:9000/static/${project.portfolioImage}`}
+                alt={`${project.title || "Project"} Main`}
+                className="main-image"
+              />
             </div>
             <div className="project-details">
               <img
-                src={project.logo}
-                alt={`${project.companyName} Logo`}
+                src={`http://192.168.1.166:9000/static/${project.portfolioLogo}`}
+                alt={`${project.companyName || "Company"} Logo`}
                 className="project-logo"
               />
-              <h3>{project.companyName}</h3>
+              <h3>{project.companyName || "Unnamed Company"}</h3>
               <p className="visit-link">
                 <a
-                  href={project.visitLink}
+                  href={project.link || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

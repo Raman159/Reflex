@@ -2,10 +2,7 @@ import React from 'react';
 import Button from "./button";
 import "./CSS/footer.css";
 import Logo2 from "./assets/image/reflex.jpg";
-import Facebook from "./assets/image/facebook.png";
-import Instagram from "./assets/image/Instagram.png";
-import Twitter from "./assets/image/Twitter.png";
-import Linkedin from "./assets/image/Linkedin.png";
+import { FaLinkedin, FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
@@ -70,10 +67,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="social-icons">
-       <a href='https://www.facebook.com/it.reflex.solution' > <img src={Facebook} alt="Facebook" /></a>
-        <a href="https://www.instagram.com/reflex.itsolution/#"><img src={Instagram} alt="Instagram" /></a>
-        <a><img src={Twitter} alt="Twitter" /></a>
-        <a href="https://www.linkedin.com/company/reflex-it-solution-pvt-ltd/"><img src={Linkedin} alt="LinkedIn" /></a>
+       <a href='https://www.facebook.com/it.reflex.solution' > <FaFacebookF /></a>
+        <a href="https://www.instagram.com/reflex.itsolution/#"><FaInstagram /></a>
+        <a href="https://x.com/SolutionReflex"><FaTwitter /></a>
+        <a href="https://www.linkedin.com/company/reflex-it-solution-pvt-ltd/"><FaLinkedin /></a>
       </div>
       <hr />
       <div className="copyright">Copyright © 2024 Reflex IT Solution</div>

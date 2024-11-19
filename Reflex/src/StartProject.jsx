@@ -4,67 +4,66 @@ import Button from "./button";
 import { useState } from "react";
 
 function StartProject() {
-  const [showOtherInput, setShowOtherInput] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({
-    name: "",
-    contact: "",
+    fullName: "",
+    phoneNumber: "",
     email: "",
-    select: "",
   });
 
-  const handleSelectChange = (event) => {
-    if (event.target.value === "Other") {
-      setShowOtherInput(true);
-    } else {
-      setShowOtherInput(false);
-    }
-  };
-
-  const validateForm = (form) => {
+  const validateForm = (formData) => {
     const errors = {
-      name: "",
-      contact: "",
+      fullName: "",
+      phoneNumber: "",
       email: "",
-      select: "",
     };
 
-    const name = form.querySelector('input[type="text"]');
-    const contact = form.querySelector('input[type="tel"]');
-    const email = form.querySelector('input[type="email"]');
-    const select = form.querySelector('select');
-
-    if (!name.value) {
-      errors.name = "Name is required.";
+    if (!formData.fullName) {
+      errors.fullName = "Full Name is required.";
     }
-    if (!contact.value || !/^\d{10}$/.test(contact.value)) {
-      errors.contact = "Please enter a valid 10-digit contact number.";
+    if (!formData.phoneNumber || !/^\d{10}$/.test(formData.phoneNumber)) {
+      errors.phoneNumber = "Please enter a valid 10-digit contact number.";
     }
-    if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
+    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
       errors.email = "Please enter a valid email address.";
     }
-    if (!select.value) {
-      errors.select = "Please select a service.";
-    }
-    if (select.value === "Other" && !form.querySelector(".input-container-others input").value) {
-      errors.select = "Please specify other.";
-    }
-
     return errors;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const form = event.target;
-    const errors = validateForm(form);
 
+    const formData = {
+      fullName: event.target.elements.fullName.value,
+      phoneNumber: event.target.elements.phoneNumber.value,
+      email: event.target.elements.email.value,
+      requirement: event.target.elements.requirement?.value || "",
+    };
+
+    const errors = validateForm(formData);
     setFormErrors(errors);
 
     if (Object.values(errors).every((error) => error === "")) {
-      setFormSubmitted(true);
-      setTimeout(() => {
-        setFormSubmitted(false);
-      }, 5000); // Hide after 5 seconds
+      try {
+        const response = await fetch("http://192.168.1.166:9000/api/request", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          setFormSubmitted(true);
+          setTimeout(() => {
+            setFormSubmitted(false);
+          }, 5000);
+        } else {
+          console.error("Error:", await response.text());
+        }
+      } catch (error) {
+        console.error("API call failed:", error);
+      }
     }
   };
 
@@ -98,68 +97,48 @@ function StartProject() {
                 <div className="input-container">
                   <input
                     type="text"
+                    name="fullName"
                     className="input-field"
                     placeholder=""
                   />
                   <span className="input-highlight"></span>
-                  <label>Name</label>
-                  {formErrors.name && <div style={{ color: 'red' }}>{formErrors.name}</div>}
+                  <label>Full Name</label>
+                  {formErrors.fullName && (
+                    <div style={{ color: "red" }}>{formErrors.fullName}</div>
+                  )}
                 </div>
 
                 <div className="input-container">
                   <input
                     type="tel"
+                    name="phoneNumber"
                     className="input-field"
                     placeholder=""
                   />
                   <span className="input-highlight"></span>
-                  <label>Contact </label>
-                  {formErrors.contact && <div style={{ color: 'red' }}>{formErrors.contact}</div>}
+                  <label>Phone Number</label>
+                  {formErrors.phoneNumber && (
+                    <div style={{ color: "red" }}>{formErrors.phoneNumber}</div>
+                  )}
                 </div>
 
-                <div className="input-container">
+                <div className="message-container">
                   <input
                     type="email"
+                    name="email"
                     className="input-field"
                     placeholder=""
                   />
                   <span className="input-highlight"></span>
                   <label>Email Address</label>
-                  {formErrors.email && <div style={{ color: 'red' }}>{formErrors.email}</div>}
+                  {formErrors.email && (
+                    <div style={{ color: "red" }}>{formErrors.email}</div>
+                  )}
                 </div>
-
-                <div className="input-container">
-                  <select
-                    className="input-field"
-                    onChange={handleSelectChange}
-                  >
-                    <option value="Website" disabled selected hidden>
-                      Website Development
-                    </option>
-                    <option value="Website">Website Development</option>
-                    <option value="Software">Software Development</option>
-                    <option value="Consulting">IT Consulting</option>
-                    <option value="Other">Other</option>
-                  </select>
-                  <span className="input-highlight"></span>
-                  <label>What are you looking for?</label>
-                  {formErrors.select && <div style={{ color: 'red' }}>{formErrors.select}</div>}
-                </div>
-
-                {showOtherInput && (
-                  <div className="input-container-others">
-                    <input
-                      type="text"
-                      className="input-field"
-                      placeholder=""
-                    />
-                    <span className="input-highlight"></span>
-                    <label>Specify Other</label>
-                  </div>
-                )}
 
                 <div className="message-container">
                   <textarea
+                    name="requirement"
                     className="input-field message-field"
                     placeholder=""
                   ></textarea>
@@ -168,11 +147,6 @@ function StartProject() {
                     Requirement Outline (Give a brief description of your
                     requirement)
                   </label>
-                </div>
-
-                <div className="file-input-container">
-                  <input type="file" className="input-field" placeholder="" />
-                  <label>Provide Document (If Any)</label>
                 </div>
 
                 <Button text="Submit" type="submit" className="submit-button" />

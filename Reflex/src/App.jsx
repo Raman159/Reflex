@@ -16,6 +16,7 @@ import Dashboard from "./dashboard";
 import StartProject from "./StartProject";
 import BlogPage from "./BlogPage";
 import ServicesPage from "./ServicesPage";
+import Socials from "./Socials.jsx"
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="/BlogPage" element={<BlogPage />} />
           <Route path="/ServicesPage" element={<ServicesPage />} />
         </Routes>
+        <Socials />
         <Footer />
       </div>
     </Router>

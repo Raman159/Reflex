@@ -231,15 +231,8 @@ ul li a:hover {
   gap: 15px;
 }
 
-.social-icons img a {
-  margin: 1% 2%;
-  transition: filter 0.3s ease;
-}
 
-.social-icons img:hover {
-  filter: brightness(20%) saturate(100%) invert(33%) sepia(100%) saturate(7499%)
-    hue-rotate(172deg);
-}
+
 @media (max-width: 1040px) {
   .footer-container {
     padding: 1.8%;
