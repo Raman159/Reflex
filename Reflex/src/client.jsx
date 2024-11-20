@@ -17,7 +17,7 @@ const client = () => {
         <p>
           Our clients are at the heart of everything we do. We strive to understand their unique needs and deliver tailored solutions that drive success. With a focus on building lasting partnerships, we are committed to exceeding their expectations and helping them achieve their goals.
         </p>
-        <div><Btn btncontent="See More"/></div>
+        <Btn btncontent="See More" link='/clients'/>
         </div>
       </div>
   )

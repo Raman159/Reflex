@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './BlogMgmt.css';
+import './CSS/BlogMgmt.css';
 
 const BlogMgmt = ({ blogs, addBlog, deleteBlog }) => {
   const [image, setImage] = useState(null);

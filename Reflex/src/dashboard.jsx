@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Login from "./Login";
 import BlogMgmt from "./BlogMgmt";  
-import './dashboard.css';
+import './CSS/dashboard.css';
 
 const Dashboard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -6,7 +6,6 @@ import Button2 from "./btn";
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
-  const [expandedBlog, setExpandedBlog] = useState(null);
 
   const getBlogs = async () => {
     try {
@@ -22,14 +21,6 @@ const BlogPage = () => {
   useEffect(() => {
     getBlogs();
   }, []);
-
-  const handleReadMore = (blogId) => {
-    if (expandedBlog === blogId) {
-      setExpandedBlog(null);
-    } else {
-      setExpandedBlog(blogId);
-    }
-  };
 
   return (
     <>
@@ -63,27 +54,8 @@ const BlogPage = () => {
             blogs.map((blog, index) => (
               <div key={index}>
                 <BlogCard blog={blog} />
-                {expandedBlog === blog.id && (
-                  <div
-                    style={{
-                      width: "80%",
-                      margin: "0 10%",
-                     fontSize:"1rem",
-                      background: "transparent",
-                      color:"white",
-                      textAlign:"justify",
-                    }}
-                  >
-                    {blog.content}
-                  </div>
-                )}
                 <div className="seemore-button">
-                  <Button2
-                    btncontent={
-                      expandedBlog === blog.id ? "Show Less" : "Read More"
-                    }
-                    onClick={() => handleReadMore(blog.id)}
-                  />
+                  <Button2 btncontent="Read More" link={`/SingleBlog/${blog.id}`} />
                 </div>
                 <hr
                   style={{

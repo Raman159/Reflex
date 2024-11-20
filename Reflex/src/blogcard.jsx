@@ -10,7 +10,7 @@ const BlogCard = ({ blog, showContent }) => {
   } = blog || {};
 
   const blogImage = documents.find(
-    (doc) => doc?.documentType === "blogImage"
+    (doc) => doc?.documentType === "featuredImage"
   )?.document;
 
   return (

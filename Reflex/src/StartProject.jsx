@@ -1,4 +1,4 @@
-import "./StartProjectPage.css";
+import "./CSS/StartProjectPage.css";
 import Navigation from "./Navigation";
 import Button from "./button";
 import { useState } from "react";
@@ -9,6 +9,12 @@ function StartProject() {
     fullName: "",
     phoneNumber: "",
     email: "",
+  });
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phoneNumber: "",
+    email: "",
+    requirement: "",
   });
 
   const validateForm = (formData) => {
@@ -30,15 +36,13 @@ function StartProject() {
     return errors;
   };
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const formData = {
-      fullName: event.target.elements.fullName.value,
-      phoneNumber: event.target.elements.phoneNumber.value,
-      email: event.target.elements.email.value,
-      requirement: event.target.elements.requirement?.value || "",
-    };
 
     const errors = validateForm(formData);
     setFormErrors(errors);
@@ -55,6 +59,13 @@ function StartProject() {
 
         if (response.ok) {
           setFormSubmitted(true);
+          setFormData({
+            fullName: "",
+            phoneNumber: "",
+            email: "",
+            requirement: "",
+          });
+
           setTimeout(() => {
             setFormSubmitted(false);
           }, 5000);
@@ -63,6 +74,7 @@ function StartProject() {
         }
       } catch (error) {
         console.error("API call failed:", error);
+        alert("Failed to connect to the server. Please try again later.");
       }
     }
   };
@@ -99,6 +111,8 @@ function StartProject() {
                     type="text"
                     name="fullName"
                     className="input-field"
+                    value={formData.fullName}
+                    onChange={handleChange}
                     placeholder=""
                   />
                   <span className="input-highlight"></span>
@@ -113,6 +127,8 @@ function StartProject() {
                     type="tel"
                     name="phoneNumber"
                     className="input-field"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
                     placeholder=""
                   />
                   <span className="input-highlight"></span>
@@ -127,6 +143,8 @@ function StartProject() {
                     type="email"
                     name="email"
                     className="input-field"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder=""
                   />
                   <span className="input-highlight"></span>
@@ -140,6 +158,8 @@ function StartProject() {
                   <textarea
                     name="requirement"
                     className="input-field message-field"
+                    value={formData.requirement}
+                    onChange={handleChange}
                     placeholder=""
                   ></textarea>
                   <span className="input-highlight"></span>

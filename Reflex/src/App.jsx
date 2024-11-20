@@ -16,7 +16,8 @@ import Dashboard from "./dashboard";
 import StartProject from "./StartProject";
 import BlogPage from "./BlogPage";
 import ServicesPage from "./ServicesPage";
-import Socials from "./Socials.jsx"
+import Socials from "./Socials.jsx";
+import SingleBlog from "./SingleBlog";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="/StartProject" element={<StartProject />} />
           <Route path="/BlogPage" element={<BlogPage />} />
           <Route path="/ServicesPage" element={<ServicesPage />} />
+          <Route path="/SingleBlog/:blogId" element={<SingleBlog />} />
         </Routes>
         <Socials />
         <Footer />

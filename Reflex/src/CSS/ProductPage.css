@@ -200,7 +200,7 @@ textarea.input {
   padding: 0.625rem;
 }
 
-.upload-document {
+/* .upload-document {
   flex: 1 1 100%;
   margin-top: 1rem;
 }
@@ -210,9 +210,9 @@ textarea.input {
   color: #fff;
   display: block;
   margin-bottom: 0.5rem;
-}
+} */
 
-.upload-document input[type="file"] {
+/* .upload-document input[type="file"] {
   padding: 0.625rem;
   background: #1f1f1f;
   color: #fff;
@@ -223,7 +223,7 @@ textarea.input {
 }
 
 .submit-button {
-  background: linear-gradient(to right, #5d00ff, #9500ff);
+  background:transparent;
   color: #ffffff;
   font-size: 16px;
   padding: 10px 20px;
@@ -235,14 +235,13 @@ textarea.input {
 }
 
 .submit-button:hover {
-  background: linear-gradient(to right, #9500ff, #8000ff);
   transform: scale(1.05);
 }
 
 .submit-button:active {
   transform: scale(0.95);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
 
 @media (max-width: 1040px) {

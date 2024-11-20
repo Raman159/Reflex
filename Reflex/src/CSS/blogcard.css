@@ -40,7 +40,7 @@
 }
 
 .blog-image {
-  width: 50%;
+  min-width: 40%;
   height: 15.625rem;
   object-fit: cover;
   border-radius: 5%;

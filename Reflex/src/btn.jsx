@@ -1,13 +1,9 @@
 import "./CSS/Button2.css";
 import { Link } from "react-router-dom";
 
-const Button2 = ({ btncontent, link, onClick }) => {
-  const handleClick = (e) => {
-    if (onClick) onClick(e);
-  };
-
+const Button2 = ({ btncontent, link }) => {
   return (
-    <Link to={link} style={{ textDecoration: "none" }} onClick={handleClick}>
+    <Link to={link} style={{ textDecoration: "none" }}>
       <button className="button2 animated-button">
         <span>{btncontent}</span>
       </button>

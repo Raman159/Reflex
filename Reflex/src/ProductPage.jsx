@@ -2,92 +2,85 @@ import React, { useState, useRef } from "react";
 import "./CSS/ProductPage.css";
 import Navigation from "./Navigation";
 import Erp from "./assets/image/erp.jpg";
+import Button from "./button";
 
 const ProductPage = () => {
   const systemData = [
     {
       id: 1,
-      title: "ERP SYSTEM",
+      title: "E-Commerce System",
+      description:
+        "Our E-Commerce system offers a robust platform for online shopping, including features for product management, customer interactions, order tracking, and payment gateways. With a focus on user experience, our solution integrates seamlessly with various payment methods, shipping providers, and customer support tools, ensuring a smooth shopping experience for both businesses and consumers.",
+      fullDescription:
+        "Our E-Commerce system offers a robust platform for online shopping, including features for product management, customer interactions, order tracking, and payment gateways. With a focus on user experience, our solution integrates seamlessly with various payment methods, shipping providers, and customer support tools, ensuring a smooth shopping experience for both businesses and consumers.",
+      image: "EcommerceImage",
+      price: "Nrs. 25000",
+      screenshots: ["EcommerceScreenshot1", "EcommerceScreenshot2"],
+      brochure: "ecommerce-brochure-path",
+    },
+    {
+      id: 2,
+      title: "ERP System",
       description:
         "Our powerful ERP system integrates all your core business processes into a single, user-friendly platform. From finance and inventory management to human resources and customer relationship management, Reflex IT Solution's ERP offers seamless automation, real-time insights, and customizable modules to meet your unique needs. Improve productivity, minimize errors, and increase efficiency with our tailored ERP solution designed for modern businesses.",
       fullDescription:
         "Our powerful ERP system integrates all your core business processes into a single, user-friendly platform. From finance and inventory management to human resources and customer relationship management, Reflex IT Solution's ERP offers seamless automation, real-time insights, and customizable modules to meet your unique needs. Improve productivity, minimize errors, and increase efficiency with our tailored ERP solution designed for modern businesses.",
       image: Erp,
       price: "Nrs. 20000",
-      screenshots: [Erp, Erp],
-      brochure: "brochure-path",
-    },
-    {
-      id: 2,
-      title: "ECOMMERCE SYSTEM",
-      description:
-        "Manage your online store efficiently with Reflex IT Solution's E-commerce System. Streamline inventory, track sales, and analyze customer trends with ease. Tailored for online businesses, our solution integrates seamlessly with major payment providers and supports customizable marketing tools.",
-      fullDescription:
-        "Manage your online store efficiently with Reflex IT Solution's E-commerce System. Streamline inventory, track sales, and analyze customer trends with ease. Tailored for online businesses, our solution integrates seamlessly with major payment providers and supports customizable marketing tools. Enhance customer engagement, optimize sales processes, and grow your e-commerce platform with Reflex's all-in-one solution.",
-      image: "ecommerce-system-image-path",
-      price: "Nrs. 50000",
-      screenshots: ["screenshot1-path", "screenshot2-path"],
+      screenshots: ["ErpScreenshot1", "ErpScreenshot2"],
       brochure: "brochure-path",
     },
     {
       id: 3,
-      title: "CRM SYSTEM",
+      title: "School Management System",
       description:
-        "Reflex IT Solution's CRM System is crafted to help businesses maintain strong customer relationships, track leads, and manage interactions seamlessly. Equipped with intuitive dashboards and robust analytics, our CRM solution offers sales automation, contact management, and personalized customer engagement for businesses of all sizes.",
-      fullDescription: (
-        <>
-          Reflex IT Solution's CRM System is a comprehensive tool designed to
-          enhance customer relationship management. Key features include:
-          <pre>
-            <p>
-              Sales Automation: Streamline lead tracking and manage sales
-              processes efficiently.
-            </p>
-            <p>
-              Contact Management: Centralize customer information for easy
-              access and improved communication.
-            </p>
-            <p>
-              Analytics and Reporting: Real-time data and customizable reports
-              provide actionable insights.
-            </p>
-            <p>
-              Personalized Customer Engagement: Tailor your interactions to
-              improve customer satisfaction and loyalty.
-            </p>
-            <p>
-              Adaptability: Easily customizable to fit the unique requirements
-              of different industries.
-            </p>
-          </pre>
-          With these tools, businesses can enhance customer satisfaction,
-          improve sales effectiveness, and foster stronger customer
-          relationships. Reflex IT Solution’s CRM is user-friendly, adaptable,
-          and packed with powerful tools to drive success in customer
-          engagement.
-        </>
-      ),
-      image: "crm-system-image-path",
-      price: "Nrs.50000",
-      screenshots: ["screenshot1-path", "screenshot2-path"],
-      brochure: "brochure-path",
+        "Our School Management System is designed to streamline the operations of educational institutions. With modules for student registration, attendance tracking, grade management, and communication between teachers, students, and parents, it simplifies administrative tasks, enhances teaching effectiveness, and improves the overall learning experience.",
+      fullDescription:
+        "Our School Management System is designed to streamline the operations of educational institutions. With modules for student registration, attendance tracking, grade management, and communication between teachers, students, and parents, it simplifies administrative tasks, enhances teaching effectiveness, and improves the overall learning experience.",
+      image: "SchoolMgmt",
+      price: "Nrs. 15000",
+      screenshots: ["SchoolMgmtScreenshot1", "SchoolMgmtScreenshot2"],
+      brochure: "school-mgmt-brochure-path",
     },
-
     {
       id: 4,
-      title: "PROJECT MANAGEMENT SYSTEM",
+      title: "Restaurant Management System",
       description:
-        "Our Project Management System by Reflex IT Solution is designed to streamline project planning, execution, and tracking. It offers collaborative tools for task management, team communication, and deadline monitoring, helping you complete projects efficiently and on time.",
+        "Our Restaurant Management System offers an all-in-one solution for managing restaurant operations, including order taking, table reservations, inventory management, and billing. With real-time reporting and an intuitive interface, our system improves service efficiency and enhances customer satisfaction, all while optimizing restaurant management processes.",
       fullDescription:
-        "Reflex IT Solution's Project Management System empowers teams to plan, execute, and track projects with ease. The system integrates essential project planning tools, enabling you to assign tasks, monitor deadlines, and collaborate seamlessly across teams. From task prioritization to resource allocation, each module is customizable to fit different project requirements. The platform's real-time tracking and reporting functions keep all stakeholders updated on project progress, ensuring accountability at every stage. Additionally, built-in communication tools foster team collaboration and help identify potential bottlenecks early, allowing for quick adjustments. Perfect for small teams or large organizations, this project management solution optimizes productivity and ensures that projects are completed on schedule.",
-      image: "project-management-system-image-path",
-      price: "Nrs. 10000",
-      screenshots: ["screenshot1-path", "screenshot2-path"],
-      brochure: "brochure-path",
+        "Our Restaurant Management System offers an all-in-one solution for managing restaurant operations, including order taking, table reservations, inventory management, and billing. With real-time reporting and an intuitive interface, our system improves service efficiency and enhances customer satisfaction, all while optimizing restaurant management processes.",
+      image: "Restaurant",
+      price: "Nrs. 18000",
+      screenshots: ["RestaurantScreenshot1", "RestaurantScreenshot2"],
+      brochure: "restaurant-brochure-path",
+    },
+    {
+      id: 5,
+      title: "Grocery Store Management System",
+      description:
+        "Our Grocery Store Management System is designed to help store owners efficiently manage inventory, sales, and customer interactions. With features for stock tracking, sales analysis, and easy-to-use point of sale (POS) functionality, this solution enhances store operations, reduces stock-outs, and ensures customer satisfaction.",
+      fullDescription:
+        "Our Grocery Store Management System is designed to help store owners efficiently manage inventory, sales, and customer interactions. With features for stock tracking, sales analysis, and easy-to-use point of sale (POS) functionality, this solution enhances store operations, reduces stock-outs, and ensures customer satisfaction.",
+      image: "GroceryStore",
+      price: "Nrs. 12000",
+      screenshots: ["GroceryStoreScreenshot1", "GroceryStoreScreenshot2"],
+      brochure: "grocery-store-brochure-path",
+    },
+    {
+      id: 6,
+      title: "HR Management System",
+      description:
+        "Our HR Management System simplifies HR tasks such as employee management, payroll, performance tracking, and recruitment. With real-time reporting and automated workflows, it reduces administrative burden and ensures compliance with labor regulations. Designed for businesses of all sizes, this system enhances HR efficiency and fosters employee satisfaction.",
+      fullDescription:
+        "Our HR Management System simplifies HR tasks such as employee management, payroll, performance tracking, and recruitment. With real-time reporting and automated workflows, it reduces administrative burden and ensures compliance with labor regulations. Designed for businesses of all sizes, this system enhances HR efficiency and fosters employee satisfaction.",
+      image: "HRSystem",
+      price: "Nrs. 22000",
+      screenshots: ["HRSystemScreenshot1", "HRSystemScreenshot2"],
+      brochure: "hr-system-brochure-path",
     },
   ];
   const systemRefs = useRef(systemData.map(() => React.createRef()));
-
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const [showViewMore, setShowViewMore] = useState(false);
   const [showRequestDemo, setShowRequestDemo] = useState(false);
   const [selectedSystem, setSelectedSystem] = useState(null);
@@ -169,14 +162,56 @@ const ProductPage = () => {
     return { isValid, errors: tempErrors };
   };
 
-  const handleDemoSubmit = (e) => {
+  
+  const handleDemoSubmit = async (e) => {
     e.preventDefault();
-
+  
     const { isValid, errors } = validateRequestDemo(requestDemoFormData);
-
+  
     if (isValid) {
-      console.log("Form Submitted Successfully!", requestDemoFormData);
-      closeModal();
+      const demoData = {
+        fullName: requestDemoFormData.name,
+        phoneNumber: requestDemoFormData.contact,
+        requestedSystem: selectedSystem.title,
+        message: requestDemoFormData.message,
+        remarks: requestDemoFormData.remarks,
+        email: requestDemoFormData.email,
+        companyName: requestDemoFormData.companyName,
+      };
+  
+      try {
+        const response = await fetch(
+          "http://192.168.1.166:9000/api/requestdemo",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(demoData),
+          }
+        );
+  
+        if (response.ok) {
+          setFormSubmitted(true);
+          setRequestDemoFormData({
+            name: "",
+            contact: "",
+            companyName: "",
+            email: "",
+            message: "",
+            remarks: "",
+          });
+  
+          setTimeout(() => {
+            setFormSubmitted(false);
+          }, 5000);
+        } else {
+          console.error("Error:", await response.text());
+        }
+      } catch (error) {
+        console.error("API call failed:", error);
+        alert("Failed to connect to the server. Please try again later.");
+      }
     } else {
       setFormErrors(errors);
     }
@@ -294,6 +329,23 @@ const ProductPage = () => {
       )}
       {showRequestDemo && selectedSystem && (
         <div className="modal">
+                {formSubmitted && (
+        <div
+          style={{
+            position: "fixed",
+            top: "20px",
+            right: "20px",
+            backgroundColor: "green",
+            color: "white",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            fontWeight: "bold",
+            zIndex: 1000,
+          }}
+        >
+          Submitted successfully. We will reach out to you soon.
+        </div>
+      )}
           <div className="modal-content">
             <span className="close" onClick={closeModal}>
               &times;
@@ -385,19 +437,36 @@ const ProductPage = () => {
                 )}
               </div>
               <div className="grp">
-                <textarea className="input" placeholder=" " rows="3"></textarea>
+                <textarea
+                  className="input"
+                  placeholder=" "
+                  rows="3"
+                  value={requestDemoFormData.message}
+                  onChange={(e) =>
+                    setRequestDemoFormData({
+                      ...requestDemoFormData,
+                      message: e.target.value,
+                    })
+                  }
+                ></textarea>
                 <label>Message (optional)</label>
               </div>
               <div className="grp">
-                <textarea className="input" placeholder=" " rows="3"></textarea>
+                <textarea
+                  className="input"
+                  placeholder=" "
+                  rows="3"
+                  value={requestDemoFormData.remarks}
+                  onChange={(e) =>
+                    setRequestDemoFormData({
+                      ...requestDemoFormData,
+                      remarks: e.target.value,
+                    })
+                  }
+                ></textarea>
                 <label>Remarks (optional)</label>
               </div>
-              <div className="upload-document">
-                <input type="file" multiple />
-              </div>
-              <button type="submit" className="submit-button">
-                Submit
-              </button>
+              <Button text="Submit" type="submit" className="submit-button" />
             </form>
           </div>
         </div>

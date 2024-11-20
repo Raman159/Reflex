@@ -9,16 +9,16 @@ import Button from './button';
 
 function ContactPage() {
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
-    phone: "",
+    contactNumber: "",
     message: "",
   });
 
   const [errors, setErrors] = useState({
-    name: "",
+    fullName: "",
     email: "",
-    phone: "",
+    contactNumber: "",
     message: "",
   });
 
@@ -30,21 +30,23 @@ function ContactPage() {
     }));
   };
 
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
   const validate = () => {
-    let tempErrors = { name: "", email: "", phone: "", message: "" };
+    let tempErrors = { fullName: "", email: "", contactNumber: "", message: "" };
     let isValid = true;
-  
-    if (!formData.name.trim()) {
-      tempErrors.name = "Name is required.";
+
+    if (!formData.fullName.trim()) {
+      tempErrors.fullName = "Name is required.";
       isValid = false;
-    } else if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
-      tempErrors.name = "Name can only contain alphabets and spaces.";
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.fullName)) {
+      tempErrors.fullName = "Name can only contain alphabets and spaces.";
       isValid = false;
-    } else if (formData.name.length < 2) {
-      tempErrors.name = "Name must be at least 2 characters.";
+    } else if (formData.fullName.length < 2) {
+      tempErrors.fullName = "Name must be at least 2 characters.";
       isValid = false;
     }
-  
+
     if (!formData.email.trim()) {
       tempErrors.email = "Email is required.";
       isValid = false;
@@ -54,18 +56,18 @@ function ContactPage() {
       tempErrors.email = "Please enter a valid email address.";
       isValid = false;
     }
-  
-    if (!formData.phone.trim()) {
-      tempErrors.phone = "Phone number is required.";
+
+    if (!formData.contactNumber.trim()) {
+      tempErrors.contactNumber = "Phone number is required.";
       isValid = false;
-    } else if (!/^[0-9]{10}$/.test(formData.phone)) {
-      tempErrors.phone = "Phone number must be 10 digits.";
+    } else if (!/^[0-9]{10}$/.test(formData.contactNumber)) {
+      tempErrors.contactNumber = "Phone number must be 10 digits.";
       isValid = false;
-    } else if (/^0+$/.test(formData.phone)) {
-      tempErrors.phone = "Phone number cannot be all zeros.";
+    } else if (/^0+$/.test(formData.contactNumber)) {
+      tempErrors.contactNumber = "Phone number cannot be all zeros.";
       isValid = false;
     }
-  
+
     if (!formData.message.trim()) {
       tempErrors.message = "Message is required.";
       isValid = false;
@@ -78,16 +80,60 @@ function ContactPage() {
     return isValid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Form data is valid", formData);
+      try {
+        const response = await fetch("http://192.168.1.166:9000/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          setFormSubmitted(true);
+          setFormData({
+            fullName: "",
+            email: "",
+            contactNumber: "",
+            message: "",
+          });
+          setTimeout(() => {
+            setFormSubmitted(false);
+          }, 5000);
+        } else {
+          console.error("Error:", await response.text());
+          alert("There was an error submitting the form. Please try again later.");
+        }
+      } catch (error) {
+        console.error("API call failed:", error);
+        alert("Failed to connect to the server. Please try again later.");
+      }
     }
   };
 
   return (
     <>
       <Navigation />
+      {formSubmitted && (
+        <div
+          style={{
+            position: "fixed",
+            top: "20px",
+            right: "20px",
+            backgroundColor: "green",
+            color: "white",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            fontWeight: "bold",
+            zIndex: 1000,
+          }}
+        >
+          Submitted successfully. We will reach out to you soon.
+        </div>
+      )}
       <div className="contact-page-container">
         <div className="contact-left-section">
           <div className="consultant-form-wrapper">
@@ -100,25 +146,25 @@ function ContactPage() {
                   <input
                     type="text"
                     className="input-field"
-                    placeholder=""
-                    name="name"
-                    value={formData.name}
+                    name="fullName"
+                       placeholder=""
+                    value={formData.fullName}
                     onChange={handleChange}
                     style={{
-                      borderColor: errors.name ? "red" : "",
+                      borderColor: errors.fullName ? "red" : "",
                     }}
                   />
                   <span className="input-highlight"></span>
-                  <label>Name</label>
-                  {errors.name && <span style={{ color: "red" }}>{errors.name}</span>}
+                  <label>Full Name</label>
+                  {errors.fullName && <span style={{ color: "red" }}>{errors.fullName}</span>}
                 </div>
 
                 <div className="input-group">
                   <input
                     type="email"
                     className="input-field"
-                    placeholder=""
                     name="email"
+                    placeholder=""
                     value={formData.email}
                     onChange={handleChange}
                     style={{
@@ -134,25 +180,24 @@ function ContactPage() {
                   <input
                     type="tel"
                     className="input-field"
-                    pattern="[0-9]{10}"
-                    placeholder=""
-                    name="phone"
-                    value={formData.phone}
+                    name="contactNumber"
+                       placeholder=""
+                    value={formData.contactNumber}
                     onChange={handleChange}
                     style={{
-                      borderColor: errors.phone ? "red" : "",
+                      borderColor: errors.contactNumber ? "red" : "",
                     }}
                   />
                   <span className="input-highlight"></span>
-                  <label>Phone Number</label>
-                  {errors.phone && <span style={{ color: "red" }}>{errors.phone}</span>}
+                  <label>Contact Number</label>
+                  {errors.contactNumber && <span style={{ color: "red" }}>{errors.contactNumber}</span>}
                 </div>
 
                 <div className="input-group">
                   <textarea
                     className="input-field message-field"
-                    placeholder=""
                     name="message"
+                       placeholder=""
                     value={formData.message}
                     onChange={handleChange}
                     style={{
@@ -168,7 +213,7 @@ function ContactPage() {
               </form>
             </div>
           </div>
-
+          
           <div className="reach-details">
             <h2>Reach Us</h2>
             <div className="vertical-line"></div>
