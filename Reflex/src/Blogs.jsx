@@ -4,8 +4,10 @@ import axios from "axios";
 import "./CSS/SingleBlog.css";
 import Navigation from "./Navigation";
 import Button2 from "./btn";
+import Footer from "./footer";
+import Socials from "./Socials.jsx";
 
-const SingleBlog = () => {
+const Blogs = () => {
   const { blogId } = useParams();
   const [blog, setBlog] = useState(null);
 
@@ -69,8 +71,10 @@ const SingleBlog = () => {
           <Button2 btncontent="Go Back" link="/BlogPage" />
         </div>
       </div>
+      <Socials />
+      <Footer />
     </>
   );
 };
 
-export default SingleBlog;
+export default Blogs;

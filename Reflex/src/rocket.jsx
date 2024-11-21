@@ -23,7 +23,7 @@ const Rocket = () => {
     <div className="rocket-container">
       <Navigation />
       <div className="reflex-text">
-        <h2>Reflex IT Solution</h2>
+        Reflex IT Solution
       </div>
       {isComplete && <img src={rocketGif} alt="rocket" className="rocket" />}
       <div className="display-content-1">
@@ -35,7 +35,7 @@ const Rocket = () => {
           <img src={App} alt="icon" className="icon" />
           <p className="item-txt">Mobile App Development</p>
         </div>
-        <div className="item item3" style={{ animationDelay: "8.5s" }}>
+        <div className="item item3" style={{ animationDelay: "7.8s" }}>
           <img src={Ecommerce} alt="icon" className="icon" />
           <p className="item-txt">E-Commerce</p>
         </div>

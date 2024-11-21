@@ -3,6 +3,8 @@ import "./CSS/ProductPage.css";
 import Navigation from "./Navigation";
 import Erp from "./assets/image/erp.jpg";
 import Button from "./button";
+import Footer from "./footer";
+import Socials from "./Socials.jsx";
 
 const ProductPage = () => {
   const systemData = [
@@ -471,6 +473,8 @@ const ProductPage = () => {
           </div>
         </div>
       )}
+       <Socials />
+       <Footer />
     </>
   );
 };

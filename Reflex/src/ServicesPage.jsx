@@ -7,7 +7,8 @@ import softwareGif from "./assets/image/software.gif";
 import marketGif from "./assets/image/digital marketing.gif";
 import mobileGif from "./assets/image/mobile application.gif";
 import commerceGif from "./assets/image/ecommerce.gif";
-
+import Footer from "./footer";
+import Socials from "./Socials.jsx";
 const servicesData = [
   {
     id: 1,
@@ -98,6 +99,8 @@ const ServicesPage = () => {
           />
         ))}
       </div>
+      <Socials />
+      <Footer />
     </>
   );
 };

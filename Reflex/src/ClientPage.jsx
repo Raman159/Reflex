@@ -3,6 +3,8 @@ import "./CSS/ClientPage.css";
 import Button2 from "./btn";
 import Navigation from "./Navigation";
 import axios from "axios";
+import Footer from "./footer";
+import Socials from "./Socials.jsx";
 
 const ClientPage = () => {
   const [clients, setClients] = useState([]);
@@ -14,7 +16,9 @@ const ClientPage = () => {
 
   const getClients = async () => {
     try {
-      const response = await axios.get("http://192.168.1.166:9000/api/ourclients");
+      const response = await axios.get(
+        "http://192.168.1.166:9000/api/ourclients"
+      );
       if (response.status === 200) {
         setClients(response.data.data);
       }
@@ -53,9 +57,7 @@ const ClientPage = () => {
                 alt={client.clientName}
                 className="client-card-image"
               />
-              <div className="client-card-name">
-                {client.clientName}
-              </div>
+              <div className="client-card-name">{client.clientName}</div>
             </div>
           ))}
         </div>
@@ -65,6 +67,8 @@ const ClientPage = () => {
           )}
         </div>
       </div>
+      <Socials />
+      <Footer />
     </>
   );
 };

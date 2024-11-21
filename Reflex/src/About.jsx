@@ -2,6 +2,8 @@ import Navigation from "./Navigation";
 import "./CSS/About.css";
 import Siximg from './assets/image/6dline.png';
 import WhyChooseUs from './WhyChooseUs';
+import Footer from "./footer";
+import Socials from "./Socials.jsx";
 
 const About = () => {
   const sectionData = [
@@ -95,6 +97,8 @@ const About = () => {
         </div>
       </div>
       <WhyChooseUs />
+      <Socials />
+      <Footer />
     </>
   );
 };

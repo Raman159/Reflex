@@ -3,6 +3,8 @@ import axios from "axios";
 import Navigation from "./Navigation";
 import "./CSS/PortfolioPage.css";
 import Button2 from "./btn";
+import Footer from "./footer";
+import Socials from "./Socials.jsx";
 
 const backgroundImages = [
   "url('./src/assets/image/portfolio1.jpg')",
@@ -182,6 +184,8 @@ const PortfolioPage = () => {
           <Button2 btncontent="See More" onClick={handleShowMore} />
         </div>
       )}
+       <Socials />
+       <Footer />
     </>
   );
 };

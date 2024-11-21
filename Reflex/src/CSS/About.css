@@ -107,6 +107,7 @@
 .sixd-text {
   font-size: 6rem;
   margin-top: -4rem;
+  color: #847d8b;
 }
 .six-d-card p {
   font-size: 1.5rem;
@@ -115,7 +116,7 @@
 }
 
 .dot {
-  color: blue;
+  color: rgb(0, 0, 141);
   font-size: 10rem;
 }
 .hr {

@@ -2,6 +2,8 @@ import "./CSS/StartProjectPage.css";
 import Navigation from "./Navigation";
 import Button from "./button";
 import { useState } from "react";
+import Footer from "./footer";
+import Socials from "./Socials.jsx";
 
 function StartProject() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -186,6 +188,8 @@ function StartProject() {
           </p>
         </div>
       </div>
+      <Socials />
+      <Footer />
     </>
   );
 }

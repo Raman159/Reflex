@@ -1,4 +1,3 @@
-import React from 'react';
 import './CSS/socials.css';
 import { FaLinkedin, FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 

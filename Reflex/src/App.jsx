@@ -5,7 +5,6 @@ import Client from "./client";
 import CEO from "./ceo";
 import Ourteam from "./OurTeam";
 import Blog from "./blog";
-import Footer from "./footer";
 import Rocket from "./rocket";
 import ContactPage from "./ContactPage";
 import AboutPage from "./About";
@@ -16,8 +15,9 @@ import Dashboard from "./dashboard";
 import StartProject from "./StartProject";
 import BlogPage from "./BlogPage";
 import ServicesPage from "./ServicesPage";
+import Blogs from "./Blogs.jsx";
+import Footer from "./footer";
 import Socials from "./Socials.jsx";
-import SingleBlog from "./SingleBlog";
 
 function App() {
   return (
@@ -35,6 +35,8 @@ function App() {
                 <Client id="Clients" />
                 <Ourteam id="team" />
                 <Blog id="Blog" />
+                <Socials />
+                <Footer />
               </>
             }
           />
@@ -47,10 +49,8 @@ function App() {
           <Route path="/StartProject" element={<StartProject />} />
           <Route path="/BlogPage" element={<BlogPage />} />
           <Route path="/ServicesPage" element={<ServicesPage />} />
-          <Route path="/SingleBlog/:blogId" element={<SingleBlog />} />
+          <Route path="/Blogs/:blogId" element={<Blogs />} />
         </Routes>
-        <Socials />
-        <Footer />
       </div>
     </Router>
   );

@@ -5,7 +5,7 @@ const Button2 = ({ btncontent, link }) => {
   return (
     <Link to={link} style={{ textDecoration: "none" }}>
       <button className="button2 animated-button">
-        <span>{btncontent}</span>
+      <span>{btncontent} <span style={{ marginLeft: '5px' }}>&lt;</span></span>
       </button>
     </Link>
   );

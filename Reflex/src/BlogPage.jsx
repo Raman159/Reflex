@@ -3,7 +3,8 @@ import BlogCard from "./BlogCard";
 import Navigation from "./Navigation";
 import axios from "axios";
 import Button2 from "./btn";
-
+import Footer from "./footer";
+import Socials from "./Socials.jsx";
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
 
@@ -71,6 +72,8 @@ const BlogPage = () => {
           )}
         </div>
       </div>
+      <Socials />
+      <Footer />
     </>
   );
 };

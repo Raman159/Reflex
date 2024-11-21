@@ -5,7 +5,9 @@ import Navigation from "./Navigation";
 import Mail from "./assets/image/Mail.png";
 import Location from "./assets/image/Location.png";
 import iPhone from "./assets/image/iPhone.png";
-import Button from './button';
+import Button from "./button";
+import Footer from "./footer";
+import Socials from "./Socials.jsx";
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -33,7 +35,12 @@ function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const validate = () => {
-    let tempErrors = { fullName: "", email: "", contactNumber: "", message: "" };
+    let tempErrors = {
+      fullName: "",
+      email: "",
+      contactNumber: "",
+      message: "",
+    };
     let isValid = true;
 
     if (!formData.fullName.trim()) {
@@ -105,7 +112,9 @@ function ContactPage() {
           }, 5000);
         } else {
           console.error("Error:", await response.text());
-          alert("There was an error submitting the form. Please try again later.");
+          alert(
+            "There was an error submitting the form. Please try again later."
+          );
         }
       } catch (error) {
         console.error("API call failed:", error);
@@ -147,7 +156,7 @@ function ContactPage() {
                     type="text"
                     className="input-field"
                     name="fullName"
-                       placeholder=""
+                    placeholder=""
                     value={formData.fullName}
                     onChange={handleChange}
                     style={{
@@ -156,7 +165,9 @@ function ContactPage() {
                   />
                   <span className="input-highlight"></span>
                   <label>Full Name</label>
-                  {errors.fullName && <span style={{ color: "red" }}>{errors.fullName}</span>}
+                  {errors.fullName && (
+                    <span style={{ color: "red" }}>{errors.fullName}</span>
+                  )}
                 </div>
 
                 <div className="input-group">
@@ -173,7 +184,9 @@ function ContactPage() {
                   />
                   <span className="input-highlight"></span>
                   <label>Email</label>
-                  {errors.email && <span style={{ color: "red" }}>{errors.email}</span>}
+                  {errors.email && (
+                    <span style={{ color: "red" }}>{errors.email}</span>
+                  )}
                 </div>
 
                 <div className="input-group">
@@ -181,7 +194,7 @@ function ContactPage() {
                     type="tel"
                     className="input-field"
                     name="contactNumber"
-                       placeholder=""
+                    placeholder=""
                     value={formData.contactNumber}
                     onChange={handleChange}
                     style={{
@@ -190,14 +203,16 @@ function ContactPage() {
                   />
                   <span className="input-highlight"></span>
                   <label>Contact Number</label>
-                  {errors.contactNumber && <span style={{ color: "red" }}>{errors.contactNumber}</span>}
+                  {errors.contactNumber && (
+                    <span style={{ color: "red" }}>{errors.contactNumber}</span>
+                  )}
                 </div>
 
                 <div className="input-group">
                   <textarea
                     className="input-field message-field"
                     name="message"
-                       placeholder=""
+                    placeholder=""
                     value={formData.message}
                     onChange={handleChange}
                     style={{
@@ -206,14 +221,20 @@ function ContactPage() {
                   ></textarea>
                   <span className="input-highlight"></span>
                   <label>Message</label>
-                  {errors.message && <span style={{ color: "red" }}>{errors.message}</span>}
+                  {errors.message && (
+                    <span style={{ color: "red" }}>{errors.message}</span>
+                  )}
                 </div>
 
-                <Button text="Submit" type="submit" className="form-submit-button" />
+                <Button
+                  text="Submit"
+                  type="submit"
+                  className="form-submit-button"
+                />
               </form>
             </div>
           </div>
-          
+
           <div className="reach-details">
             <h2>Reach Us</h2>
             <div className="vertical-line"></div>
@@ -259,6 +280,8 @@ function ContactPage() {
           </div>
         </div>
       </div>
+      <Socials />
+      <Footer />
     </>
   );
 }
