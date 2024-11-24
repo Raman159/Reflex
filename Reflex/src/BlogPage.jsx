@@ -5,8 +5,11 @@ import axios from "axios";
 import Button2 from "./btn";
 import Footer from "./footer";
 import Socials from "./Socials.jsx";
+
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const blogsPerPage = 3; 
 
   const getBlogs = async () => {
     try {
@@ -23,6 +26,15 @@ const BlogPage = () => {
     getBlogs();
   }, []);
 
+  const indexOfLastBlog = currentPage * blogsPerPage;
+  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+  const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
+  const totalPages = Math.ceil(blogs.length / blogsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <>
       <Navigation />
@@ -32,8 +44,7 @@ const BlogPage = () => {
       >
         <h2 className="cover-text">Latest Trends</h2>
         <p className="cover-subtext">
-          Stay updated with the latest trends shaping the digital world and
-          beyond.
+          Stay updated with the latest trends shaping the digital world and beyond.
         </p>
       </div>
       <div className="header-text-content">
@@ -51,26 +62,43 @@ const BlogPage = () => {
       </div>
       <div className="blog">
         <div className="blog-content">
-          {blogs && blogs.length > 0 ? (
-            blogs.map((blog, index) => (
+          {currentBlogs.length > 0 ? (
+            currentBlogs.map((blog, index) => (
               <div key={index}>
                 <BlogCard blog={blog} />
                 <div className="seemore-button">
-                  <Button2 btncontent="Read More" link={`/SingleBlog/${blog.id}`} />
+                  <Button2 btncontent="Read More" link={`/Blogs/${blog.id}`} />
                 </div>
-                <hr
-                  style={{
-                    borderColor: "white",
-                    borderWidth: "3px",
-                    margin: "2% 10%",
-                  }}
-                />
+                {index !== currentBlogs.length - 1 && (
+                  <hr
+                    style={{
+                      borderColor: "white",
+                      borderWidth: "3px",
+                      margin: "2% 10%",
+                    }}
+                  />
+                )}
               </div>
             ))
           ) : (
             <p>No blogs available.</p>
           )}
         </div>
+        {blogs.length > blogsPerPage && (
+          <div className="pagination">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                className={`page-button ${
+                  currentPage === index + 1 ? "active" : ""
+                }`}
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
       <Socials />
       <Footer />

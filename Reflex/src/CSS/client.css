@@ -157,8 +157,6 @@
     z-index: 99;
 }
 .card5{
-    
-    /*  */
     z-index: 1;
     background-image:url(./src/assets/image/hard.png);
     position: absolute;

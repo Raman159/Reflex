@@ -1,13 +1,24 @@
-/* src/Cursor.css */
-.cursor {
-    position: absolute;
-    width: 20px; /* Adjust size as needed */
-    height: 20px; /* Adjust size as needed */
-    border-radius: 50%;
-    background-color: rgba(30, 144, 255, 0.7); /* Bright blue color */
-    pointer-events: none; /* Prevent cursor from blocking other elements */
-    transition: transform 0.1s ease; /* Smooth movement */
-    box-shadow: 0 0 30px rgba(30, 144, 255, 0.8); /* Bright blue light effect */
-    transform: translate(-50%, -50%); /* Center the cursor */
-  }
-  
+
+/* .cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: blue;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1000; 
+  transform: translate(-50%, -50%);
+} */
+
+
+.cursor-blur {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 0, 255, 0.3) 0%, rgba(0, 0, 255, 0) 100%);
+  filter: blur(20px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999; 
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,72 @@
+.create-client-form-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #1f2833;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(102, 252, 241, 0.4);
+    text-align: center;
+  }
+  
+  .create-client-form-container h2 {
+    color: #66fcf1;
+    margin-bottom: 20px;
+    font-size: 2em;
+  }
+  
+  .create-client-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .create-client-form input,
+  .create-client-form button {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    border: 1px solid #45a29e;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1em;
+  }
+  
+  .create-client-form input[type="file"] {
+    padding: 0;
+  }
+  
+  .create-client-form input:focus {
+    outline: none;
+    border-color: #66fcf1;
+    box-shadow: 0px 0px 8px rgba(102, 252, 241, 0.7);
+  }
+  
+  .create-client-form button {
+    background: linear-gradient(45deg, #45a29e, #66fcf1);
+    color: #1f2833;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .create-client-form button:hover {
+    background: linear-gradient(45deg, #66fcf1, #45a29e);
+    color: #0b0c10;
+  }
+  
+  @media (max-width: 768px) {
+    .create-client-form-container {
+      padding: 15px;
+    }
+  
+    .create-client-form input,
+    .create-client-form button {
+      font-size: 0.9em;
+    }
+  
+    .create-client-form-container h2 {
+      font-size: 1.5em;
+    }
+  }
+  

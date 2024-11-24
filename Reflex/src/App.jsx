@@ -18,6 +18,7 @@ import ServicesPage from "./ServicesPage";
 import Blogs from "./Blogs.jsx";
 import Footer from "./footer";
 import Socials from "./Socials.jsx";
+import Cursor from "./Cursor.jsx"
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
           <Route path="/ServicesPage" element={<ServicesPage />} />
           <Route path="/Blogs/:blogId" element={<Blogs />} />
         </Routes>
+        <Cursor />
       </div>
     </Router>
   );
