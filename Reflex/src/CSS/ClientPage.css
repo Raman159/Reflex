@@ -9,7 +9,7 @@
 .client-card-item {
   position: relative;
   height: auto; 
-  overflow: hidden;
+  overflow: visible;
   border-radius: 8px;
   /* background-color: rgb(39, 39, 39); */
   box-shadow: 0 0 8px rgba(82, 113, 255, 0.5), 

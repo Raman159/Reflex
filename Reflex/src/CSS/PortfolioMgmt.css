@@ -88,3 +88,220 @@
         font-size: 1.5em;
     }
 }
+
+.portfolio-header-text-content {
+    text-align: center;
+    padding: 20px;
+    color: #66fcf1;
+  }
+  
+  .portfolio-header-text-content h2 span {
+    color: #45a29e;
+  }
+  
+  .portfolio-single-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #1f2833;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(102, 252, 241, 0.4);
+  }
+  
+  .portfolio-single-title {
+    color: #66fcf1;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .portfolio-single-author {
+    text-align: center;
+    font-size: 1.1em;
+    color: #c5c6c7;
+    margin-bottom: 20px;
+  }
+  
+  .portfolio-featured-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 100px;
+    box-shadow: 0px 0px 10px rgba(69, 162, 158, 0.7);
+  }
+  
+  .portfolio-single-excerpt,
+  .portfolio-single-content {
+    font-size: 1.2em;
+    line-height: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  .portfolio-seemore-button {
+    text-align: center;
+  }
+  
+  .portfolio-seemore-button button {
+    background: linear-gradient(45deg, #45a29e, #66fcf1);
+    color: #1f2833;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .portfolio-seemore-button button:hover {
+    background: linear-gradient(45deg, #66fcf1, #45a29e);
+    color: #0b0c10;
+  }
+  
+  .create-portfolio-form-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #1f2833;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(102, 252, 241, 0.4);
+  }
+  
+  .create-portfolio-form-container h1 {
+    text-align: center;
+    color: #66fcf1;
+    margin-bottom: 20px;
+  }
+  
+  .create-portfolio-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .create-portfolio-form label {
+    color: #66fcf1;
+    font-size: 1em;
+    position: relative;
+    top: 10px;
+  }
+  
+  .create-portfolio-form input,
+  .create-portfolio-form select,
+  .create-portfolio-form button {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    border: 1px solid #45a29e;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1em;
+  }
+  
+  .create-portfolio-form input[type="file"] {
+    padding: 0;
+  }
+  
+  .create-portfolio-form input:focus,
+  .create-portfolio-form select:focus {
+    outline: none;
+    border-color: #66fcf1;
+    box-shadow: 0px 0px 8px rgba(102, 252, 241, 0.7);
+  }
+  
+  .create-portfolio-form button {
+    background: linear-gradient(45deg, #45a29e, #66fcf1);
+    color: #1f2833;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .create-portfolio-form button:hover {
+    background: linear-gradient(45deg, #66fcf1, #45a29e);
+    color: #0b0c10;
+  }
+  
+  .portfolio-table-container {
+    margin: 2% 0%;
+    background-color: #12111c;
+    /* padding: 20px; */
+    border-radius: 10px;
+  }
+  
+  .portfolio-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+  }
+  
+  .portfolio-table th,
+  .portfolio-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .portfolio-table th {
+    background-color: #452ed2;
+  }
+  
+  .portfolio-table tr:nth-child(even) {
+    background-color: #1a1a2d;
+  }
+  
+  .portfolio-table tr:hover {
+    background-color: #333;
+  }
+  
+  .portfolio-image-small {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  .page-button {
+    background-color: #452ed2;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .page-button.active {
+    background-color: #9747ff;
+  }
+  
+  .page-button:hover {
+    background-color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .portfolio-single-container {
+      padding: 10px;
+    }
+  
+    .create-portfolio-form-container {
+      padding: 15px;
+    }
+  
+    .create-portfolio-form input,
+    .create-portfolio-form select,
+    .create-portfolio-form button {
+      font-size: 0.9em;
+    }
+  
+    .portfolio-single-title {
+      font-size: 2em;
+    }
+  
+    .portfolio-featured-image {
+      border-radius: 50px;
+    }
+  
+    .portfolio-header-text-content p {
+      font-size: 1em;
+    }
+  }
+  

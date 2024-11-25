@@ -29,9 +29,7 @@ const Dashboard = () => {
 
   const getContactMessages = async () => {
     try {
-      const response = await axios.get(
-        "http://192.168.1.166:9000/api/contact"
-      );
+      const response = await axios.get("http://192.168.1.166:9000/api/contacts");
       if (response.status === 200) {
         setContactMessages(response.data.data);
       }
@@ -42,9 +40,7 @@ const Dashboard = () => {
 
   const getProjectRequests = async () => {
     try {
-      const response = await axios.get(
-        "http://192.168.1.166:9000/api/request"
-      );
+      const response = await axios.get("http://192.168.1.166:9000/api/startprojects");
       if (response.status === 200) {
         setProjectRequests(response.data.data);
       }
@@ -66,6 +62,7 @@ const Dashboard = () => {
   };
 
   return (
+    <>
     <div className="dashboard-container">
       {isLoggedIn && (
         <>
@@ -183,7 +180,8 @@ const Dashboard = () => {
                             <strong>Email:</strong> {message.email}
                           </div>
                           <div className="row-item">
-                            <strong>Contact Number:</strong> {message.contactNumber}
+                            <strong>Contact Number:</strong>{" "}
+                            {message.contactNumber}
                           </div>
                           <div className="row-item full-message">
                             <strong>Message:</strong> {message.message || "N/A"}
@@ -226,6 +224,7 @@ const Dashboard = () => {
         </>
       )}
     </div>
+    </>
   );
 };
 
