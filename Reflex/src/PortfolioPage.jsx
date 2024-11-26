@@ -18,8 +18,8 @@ const appType = [
   "All",
   "WebAPP",
   "MobAPP",
-  "Software Development",
-  "Digital Marketing",
+  "SoftwareDevelopment",
+  "DigitalMarketing",
   "E-Commerce",
   "Others",
 ];
@@ -29,8 +29,8 @@ const appTypeDisplayNames = {
   All: "All",
   WebAPP: "Web Development",
   MobAPP: "Mobile Development",
-  "Software Development": "Software Development",
-  "Digital Marketing": "Digital Marketing",
+  SoftwareDevelopment: "Software Development",
+  DigitalMarketing: "Digital Marketing",
   "E-Commerce": "E-Commerce",
   Others: "Other Projects",
 };

@@ -53,8 +53,8 @@ const BlogPage = () => {
 
       let response;
       if (newBlog.id) {
-        response = await axios.put(
-          `http://192.168.1.166:9000/api/blog/${newBlog.id}`,
+        response = await axios.patch(
+          `http://192.168.1.166:9000/api/blog/update/${newBlog.id}`,
           formData,
           { headers: { "Content-Type": "multipart/form-data" } }
         );

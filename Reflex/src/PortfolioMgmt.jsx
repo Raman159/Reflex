@@ -7,7 +7,7 @@ const PortfolioMgmt = () => {
   const [formData, setFormData] = useState({
     title: "",
     companyName: "",
-    appType: "All",
+    appType: "",
     link: "",
     portfolioImage: null,
     portfolioLogo: null,
