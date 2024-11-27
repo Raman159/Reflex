@@ -6,9 +6,9 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (username === "" && password === "") {
+    if (username === "admin" && password === "password") { 
       alert("Login successful");
-      onLogin();
+      onLogin(true); 
     } else {
       alert("Invalid credentials");
     }
