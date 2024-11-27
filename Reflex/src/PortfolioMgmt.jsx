@@ -5,7 +5,7 @@ import "./CSS/PortfolioMgmt.css";
 const PortfolioMgmt = () => {
   const [portfolios, setPortfolios] = useState([]);
   const [formData, setFormData] = useState({
-    title: "",
+    // title: "",
     companyName: "",
     appType: "",
     link: "",
